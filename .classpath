@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/test/assets"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/b7f0fc8f61ecadeb3695f0b9464755eee44374d4/commons-codec-1.6.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/61e9f9d11fe3e12ec62f633006e99d75fd7f19c8/commons-codec-1.6-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.m2/repository/com/thoughtworks/xstream/xstream/1.4.7/xstream-1.4.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.m2/repository/de/sydsoft/libST/1.1/libST-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jmonkeyengine3/3.0.0.20120512-SNAPSHOT/de4459704694098efb18848164a827fa25d17368/jmonkeyengine3-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-testdata/3.0.0.20120512-SNAPSHOT/3ef78ff3d77d80b0d8f7daf90009f4cc29cd7899/jME3-testdata-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-core/3.0.0.20120512-SNAPSHOT/bb673f7a4f8307c1d4fc92f273e01e444e42d4df/jME3-core-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-lwjgl/3.0.0.20120512-SNAPSHOT/c0c89a50391546af9a540eaa3bc76111a52a640b/jME3-lwjgl-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-lwjgl-natives/3.0.0.20120512-SNAPSHOT/4865466f537a80383b8095055dae38f178fcc9f8/jME3-lwjgl-natives-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/lwjgl/3.0.0.20120512-SNAPSHOT/fa107e1e1aef0261649e9a2f33aead85b3d7af70/lwjgl-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-jbullet/3.0.0.20120512-SNAPSHOT/70fb9044404b72f68e357ccf90e2874915aa46ed/jME3-jbullet-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jbullet/3.0.0.20120512-SNAPSHOT/2839320cab17f695a33dee6a743e41652645d887/jbullet-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-blender/3.0.0.20120512-SNAPSHOT/e321ef2a6fb7ca756b1c2250dc4f1e23b9fcc4b4/jME3-blender-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-desktop/3.0.0.20120512-SNAPSHOT/e7d52198f80597e954b1763ecb24a4d6c80a6821/jME3-desktop-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-effects/3.0.0.20120512-SNAPSHOT/904a845c261fa29253ca354572f419e74eaeefc5/jME3-effects-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-networking/3.0.0.20120512-SNAPSHOT/1f65ceaff3ca6c6fc98889c3490b6d5ec914d491/jME3-networking-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-plugins/3.0.0.20120512-SNAPSHOT/d4e1c6e055367bf8a31abf4ed933f1c19a4f1eaa/jME3-plugins-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-terrain/3.0.0.20120512-SNAPSHOT/ade50bc6ad4163272fd9633ff74d1af708bcd818/jME3-terrain-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-jogg/3.0.0.20120512-SNAPSHOT/67aef4b6f149a9f5c94dcf7d2a73331446bd90a8/jME3-jogg-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/j-ogg-oggd/3.0.0.20120512-SNAPSHOT/e40037acfaf46069036f1f496453c30a4026a89/j-ogg-oggd-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/j-ogg-vorbisd/3.0.0.20120512-SNAPSHOT/5b56052a7768f9fc0ef12d3710994a4cb770b59c/j-ogg-vorbisd-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jinput/3.0.0.20120512-SNAPSHOT/2d5a40f2a25f8b4ec1ea35f3e5ca79119ed5d027/jinput-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/eventbus/3.0.0.20120512-SNAPSHOT/550e0022e92fff62f376b72d821701a548a09fce/eventbus-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/stack-alloc/3.0.0.20120512-SNAPSHOT/251351e2cc040ebf5712779c54284f205bf3eb40/stack-alloc-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/vecmath/3.0.0.20120512-SNAPSHOT/8624267a63f22a052c38d2423cd24f4418e1bceb/vecmath-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/xmlpull-xpp3/3.0.0.20120512-SNAPSHOT/908f5092cbc5e01993feed2893376d194ceba2fd/xmlpull-xpp3-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/jME3-niftygui/3.0.0.20120512-SNAPSHOT/c5e5c05eac2f5c47488e1cd98e88e133efc17aa/jME3-niftygui-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/nifty/3.0.0.20120512-SNAPSHOT/e0cced36136ee57ba290c39028f047966ea04c40/nifty-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/nifty-default-controls/3.0.0.20120512-SNAPSHOT/b124c111aeb1ab650e6dfd9391c9bfb756f48a81/nifty-default-controls-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/nifty-examples/3.0.0.20120512-SNAPSHOT/7b5a537211fc98a269f55abf2ce806b8e1b3edec/nifty-examples-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/nifty-style-black/3.0.0.20120512-SNAPSHOT/644484ac49a9a1a79b83ed372791ce72c6917a4e/nifty-style-black-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

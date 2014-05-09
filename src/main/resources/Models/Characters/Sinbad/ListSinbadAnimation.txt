@@ -1,0 +1,13 @@
+Dance
+DrawSwords
+HandsClosed
+HandsRelaxed
+IdleBase
+IdleTop
+JumpEnd
+JumpLoop
+JumpStart
+RunBase
+RunTop
+SliceHorizontal
+SliceVertical

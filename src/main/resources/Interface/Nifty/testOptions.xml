@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
+    <screen controller="de.sydsoft.sg_wolfskrone.gui.screens.IngameScreen" id="testOptionsPane">
+        <layer id="optionlayer" childLayout="center">
+            <panel align="center" childLayout="center">
+                <control id="edit_tabs" buttonWidth="33,3%" buttonHeight="30px" >
+                    <control id="tab_1" name="graphicTab" caption="${locale.graphicOptions}">
+                        <panel backgroundColor="#ff00ffff" childLayout="center" height="100%" visible="false" visibleToMouse="true" width="100%">
+                            <panel backgroundColor="#ff00ffff" childLayout="vertical" height="90%" id="optionsGrafik_JPanel5" visible="false" visibleToMouse="true" width="30%">
+                                <panel backgroundColor="#ff00ffff" childLayout="center" height="50%" id="optionsGrafik_JPanel20" visible="false" visibleToMouse="true" width="90%">
+                                    <control height="50%" id="VSync" name="checkbox" visibleToMouse="true" width="100%" valign="top"/>
+                                </panel>
+                                <panel backgroundColor="#ff00ffff" childLayout="center" height="50%" id="optionsGrafik_JPanel7" visible="false" visibleToMouse="true" width="90%">
+                                    <control height="50%" id="Vollbild" name="checkbox" visibleToMouse="true" width="100%" valign="top"/>
+                                </panel>
+                            </panel>
+                            <panel backgroundColor="#ff00ffff" childLayout="vertical" height="100%" id="optionsGrafik_JPanel4" visible="false" visibleToMouse="true" width="70%">
+                                <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="10.1%" id="optionsGrafik_JPanel16" visible="false" visibleToMouse="true" width="100%">
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel15" name="label" text="Tiefenpuffer" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                    <control height="100%" id="optionsGrafik_JSlider8" max="6.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel16" name="label" text="8" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                </panel>
+                                <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="10.1%" id="optionsGrafik_JPanel15" visible="false" visibleToMouse="true" width="100%">
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel14" name="label" text="8" textHAlign="left" valign="center" visibleToMouse="true" width="200"/>
+                                    <control height="100%" id="optionsGrafik_JSlider7" max="1.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel13" name="label" text="Farbpuffer" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                </panel>
+                                <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="10.1%" id="optionsGrafik_JPanel14" visible="false" visibleToMouse="true" width="100%">
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel12" name="label" text="8" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                    <control height="100%" id="optionsGrafik_JSlider6" max="6.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel11" name="label" text="Antializing" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                </panel>
+                                <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="10.1%" id="optionsGrafik_JPanel13" visible="false" visibleToMouse="true" width="100%">
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel10" name="label" text="60" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                    <control height="100%" id="optionsGrafik_JSlider5" max="3.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel9" name="label" text="Bildwiederholrate" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                </panel>
+                                <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="10.1%" id="optionsGrafik_JPanel12" visible="false" visibleToMouse="true" width="100%">
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel8" name="label" text="OpenGL3" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                    <control height="100%" id="optionsGrafik_JSlider4" max="3.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel7" name="label" text="Renderer" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                </panel>
+                                <panel backgroundColor="#ff00ffff" height="10.1%" id="optionsGrafik_JPanel11" visible="false" visibleToMouse="true" width="100%"/>
+                                <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="10.1%" id="optionsGrafik_JPanel10" visible="false" visibleToMouse="true" width="100%">
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel6" name="label" text="unendlich" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                    <control height="100%" id="optionsGrafik_JSlider3" max="6.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel5" name="label" text="Bildschirm Frequenz" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                </panel>
+                                <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="10.1%" id="optionsGrafik_JPanel9" visible="false" visibleToMouse="true" width="100%">
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel4" name="label" text="32 bpp" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                    <control height="100%" id="optionsGrafik_JSlider2" max="6.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel3" name="label" text="Farbtiefe" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                </panel>
+                                <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="10.1%" id="optionsGrafik_JPanel6" visible="false" visibleToMouse="true" width="100%">
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel2" name="label" text="1280x1024" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                    <control height="100%" id="optionsGrafik_JSlider1" max="5.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel1" name="label" text="Auflösung" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                                </panel>
+                            </panel>
+                        </panel>                    
+                    </control>
+                    <control id="tab_2" name="soundTab" caption="${locale.soundOptions}">
+                        <panel backgroundColor="#ff00ffff" childLayout="vertical" height="100%" id="optionsSound_JPanel2" visible="false" visibleToMouse="true" width="100%">
+                            <panel backgroundColor="#ff00ffff" childLayout="vertical" height="40%" id="optionsSound_JPanel21" visible="false" visibleToMouse="true" width="90%">
+                                <panel childLayout="horizontal" height="20%" visible="false" visibleToMouse="true" >
+                                    <control height="100%" id="optionsSound_JSlider9" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                    <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel17" name="label" text="Gesamtlautstärke" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                                </panel>
+                                <panel childLayout="horizontal" height="20%" visible="false" visibleToMouse="true" >
+                                    <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="100%" id="optionsSound_JPanel26" visible="false" visibleToMouse="true" width="50%">
+                                        <control height="100%" id="optionsSound_JSlider13" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                        <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel21" name="label" text="Sprache" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                                    </panel>
+                                    <panel backgroundColor="#ff00ffff" childLayout="horizontal" height="100%" id="optionsSound_JPanel25" visible="false" visibleToMouse="true" width="50%">
+                                        <control height="100%" id="optionsSound_JSlider12" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                        <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel20" name="label" text="Hintergrund" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                                    </panel>
+                                </panel>
+                                <panel childLayout="horizontal" height="20%" visible="false" visibleToMouse="true" >
+                                    <panel backgroundColor="#ff00ffff" childLayout="absolute" height="100%" id="optionsSound_JPanel23" visible="false" visibleToMouse="true" width="50%">
+                                        <control height="100%" id="optionsSound_JSlider11" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                        <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel19" name="label" text="Töne" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                                    </panel>
+                                    <panel backgroundColor="#ff00ffff" childLayout="absolute" height="100%" id="optionsSound_JPanel22" visible="false" visibleToMouse="true" width="50%">
+                                        <control height="100%" id="optionsSound_JSlider10" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                        <control align="left" color="#333333ff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel18" name="label" text="Musik" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                                    </panel>
+                                </panel>
+                            </panel>
+                            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="50%" id="optionsSound_JPanel24" visible="false" visibleToMouse="true" width="90%"/>
+                        </panel>
+                    </control>
+                    <!--<control id="tab_3" name="inputTab" caption="${locale.inputOptions}">
+                    </control>-->
+                </control>
+            </panel>
+        </layer>    
+    </screen>
+</nifty>

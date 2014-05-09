@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
+    <useStyles filename="nifty-default-styles.xml" />
+    <useControls filename="nifty-default-controls.xml" />
+    <useControls filename="Interface/Nifty/Ingame/textfield.xml" />
+    <useControls filename="Interface/Nifty/Ingame/chat-control.xml" />
+    <!--<resourceBundle id="locale" filename="assets/Interface/Nifty/Locale/nifty" />-->
+    <controlDefinition controller="de.sydsoft.sg_wolfskrone.gui.ingame.chat.ChatAreaController" name="chatArea">
+        <panel childLayout="center" heigh="$height" width="$width">
+            <control autoScroll="$autoScroll" height="100%" horizontal="$horizontal" id="scroll_panel" name="scrollPanel" vertical="$vertical" width="100%">
+                <text align="left" color="#ffff" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="text_area" text="$text" textHAlign="left" textVAlign="top" width="100%" wrap="true" />
+            </control>
+        </panel>
+    </controlDefinition>
+    <popup childLayout="center" id="loginPopup">
+        <panel align="center" childLayout="vertical" height="32%" style="nifty-panel" valign="center" width="35%">
+            <text align="center" color="#ffff" font="Interface/Fonts/NimbusSansL.fnt" id="NoAccount" text="${locale.AccountNotFound}" valign="bottom" visible="false"/>
+            <control align="center" id="userName" text="${locale.username}" type="textfield" width="80%" wrap="true" />
+            <control align="center" id="passWord" passwordChar="*" text="passwort" type="textfield" width="80%" wrap="true" />
+            <control align="center" id="loginButton" label="${locale.login}" type="button" width="80%" wrap="true">
+                <interact onClick="buttonClicked(loginButton)" />
+            </control>
+            <effect>
+                <onStartScreen direction="top" inherit="true" length="300" mode="in" name="move" startDelay="0" />
+                <onEndScreen direction="bottom" inherit="true" length="300" mode="out" name="move" startDelay="0" />
+            </effect>
+        </panel>            
+    </popup>
+    <popup childLayout="center" id="optionsPopup">
+        <panel id="optionsPanel" align="center" childLayout="center" style="nifty-panel" height="60%" width="60%" visible="true" visibleToMouse="true">
+            <!--<control name="nifty-tabs" buttonWidth="33%" buttonHeight="10%">
+                <control childLayout="center" id="graphicTab" name="nifty-tab" caption="${locale.graphicOptions}" valign="top" align="left">-->
+            <panel childLayout="vertical" height="100%" visible="true" visibleToMouse="false" width="100%">
+                <panel childLayout="horizontal" height="90%" visible="true" visibleToMouse="false" width="100%">
+                    <panel childLayout="vertical" height="100%" id="optionsGrafik_JPanel4" visible="true" visibleToMouse="true" width="70%">
+                        <panel childLayout="horizontal" height="11.1%" id="optionsGrafik_JPanel16" visible="true" visibleToMouse="true" width="100%">
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" name="label" text="Tiefenpuffer" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                            <control height="100%" max="6.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel16" name="label" text="8" textHAlign="left" valign="center" visibleToMouse="true" width="29%"/>
+                        </panel>
+                        <panel childLayout="horizontal" height="11.1%" visible="true" visibleToMouse="true" width="100%">
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" name="label" text="Farbpuffer" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                            <control height="100%" id="optionsGrafik_JSlider7" max="1.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel14" name="label" text="8" textHAlign="left" valign="center" visibleToMouse="true" width="29%"/>
+                        </panel>
+                        <panel childLayout="horizontal" height="11.1%" visible="true" visibleToMouse="true" width="100%">
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" name="label" text="Antializing" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                            <control height="100%" id="optionsGrafik_JSlider6" max="6.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel12" name="label" text="8" textHAlign="left" valign="center" visibleToMouse="true" width="29%"/>
+                        </panel>
+                        <panel childLayout="horizontal" height="11.1%" visible="false" visibleToMouse="false" width="100%">
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" name="label" text="Bildwiederholrate" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                            <control height="100%" id="optionsGrafik_JSlider5" max="3.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel10" name="label" text="60" textHAlign="left" valign="center" visibleToMouse="true" width="29%"/>
+                        </panel>
+                        <panel childLayout="horizontal" height="11.1%" visible="true" visibleToMouse="true" width="100%">
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" name="label" text="Renderer" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                            <control height="100%" id="optionsGrafik_JSlider4" max="3.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel8" name="label" text="OpenGL3" textHAlign="left" valign="center" visibleToMouse="true" width="29%"/>
+                        </panel>
+                        <panel height="11.1%" visible="false" visibleToMouse="false" width="100%"/>
+                        <panel childLayout="horizontal" height="11.1%" visible="true" visibleToMouse="true" width="100%">
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" name="label" text="Bildschirm Frequenz" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                            <control height="100%" id="optionsGrafik_JSlider3" max="6.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel6" name="label" text="unendlich" textHAlign="left" valign="center" visibleToMouse="true" width="29%"/>
+                        </panel>
+                        <panel childLayout="horizontal" height="11.1%" visible="true" visibleToMouse="true" width="100%">
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" name="label" text="Farbtiefe" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                            <control height="100%" id="optionsGrafik_JSlider2" max="6.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel4" name="label" text="32 bpp" textHAlign="left" valign="center" visibleToMouse="true" width="29%"/>
+                        </panel>
+                        <panel childLayout="horizontal" height="11.1%" visible="true" visibleToMouse="true" width="100%">
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" name="label" text="Auflösung" textHAlign="left" valign="center" visibleToMouse="true" width="30%"/>
+                            <control height="100%" id="optionsGrafik_JSlider1" max="5.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="40%"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsGrafik_JLabel2" name="label" text="1280x1024" textHAlign="left" valign="center" visibleToMouse="true" width="29%"/>
+                        </panel>
+                    </panel>
+                    <panel childLayout="vertical" height="90%" visible="true" visibleToMouse="true" width="30%">
+                        <panel childLayout="horizontal" height="50%" visible="true" visibleToMouse="true" width="90%">
+                            <control height="10%" id="VSyncCB" name="checkbox" visibleToMouse="true" width="10%" valign="top"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="10%" id="VSyncLabel" name="label" text="VSync" textHAlign="left" valign="top" visibleToMouse="true" width="89%"/>
+                        </panel>
+                        <panel childLayout="horizontal" height="50%" visible="true" visibleToMouse="true" width="90%">
+                            <control height="10%" id="Vollbild" name="checkbox" visibleToMouse="true" width="10%" valign="top"/>
+                            <panel width="1%"/>
+                            <control textVAlign="top" align="left" font="Interface/Fonts/NimbusSansL.fnt" height="10%" id="Fullscreenlabel" name="label" text="Vollbild" textHAlign="left" valign="top" visibleToMouse="true" width="89%"/>
+                        </panel>
+                    </panel>
+                </panel>
+                <panel childLayout="horizontal" height="10%" visible="true" visibleToMouse="true" width="100%">
+                    <panel width="55%"/>
+                    <control align="center" valign="center" id="OptionsOk" label="OK" type="button" width="15%" height="100%" wrap="true">
+                        <interact onClick="buttonClicked(OptionsOk)" />
+                    </control>
+                    <control align="center" valign="center" id="OptionsApply" label="Apply" type="button" width="15%" height="100%" wrap="true">
+                        <interact onClick="buttonClicked(OptionsApply)" />
+                    </control>
+                    <control align="center" valign="center" id="OptionsCancel" label="Cancel" type="button" width="15%" height="100%" wrap="true">
+                        <interact onClick="buttonClicked(OptionsCancel)" />
+                    </control>
+                </panel>
+            </panel>
+                <!--</control>
+                <control childLayout="center" valign="top" align="center" id="soundTab" name="nifty-tab" caption="${locale.soundOptions}">
+                    <panel childLayout="vertical" height="100%" id="optionsSound_JPanel2" visible="true" visibleToMouse="true" width="100%">
+                        <panel childLayout="vertical" height="40%" id="optionsSound_JPanel21" visible="true" visibleToMouse="true" width="90%">
+                            <panel childLayout="horizontal" height="20%" visible="true" visibleToMouse="true" >
+                                <control height="100%" id="optionsSound_JSlider9" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                <control align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel17" name="label" text="Gesamtlautstärke" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                            </panel>
+                            <panel childLayout="horizontal" height="20%" visible="true" visibleToMouse="true" >
+                                <panel childLayout="horizontal" height="100%" id="optionsSound_JPanel26" visible="true" visibleToMouse="true" width="50%">
+                                    <control height="100%" id="optionsSound_JSlider13" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                    <control align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel21" name="label" text="Sprache" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                                </panel>
+                                <panel childLayout="horizontal" height="100%" id="optionsSound_JPanel25" visible="true" visibleToMouse="true" width="50%">
+                                    <control height="100%" id="optionsSound_JSlider12" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                    <control align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel20" name="label" text="Hintergrund" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                                </panel>
+                            </panel>
+                            <panel childLayout="horizontal" height="20%" visible="true" visibleToMouse="true" >
+                                <panel childLayout="absolute" height="100%" id="optionsSound_JPanel23" visible="true" visibleToMouse="true" width="50%">
+                                    <control height="100%" id="optionsSound_JSlider11" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                    <control align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel19" name="label" text="Töne" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                                </panel>
+                                <panel childLayout="absolute" height="100%" id="optionsSound_JPanel22" visible="true" visibleToMouse="true" width="50%">
+                                    <control height="100%" id="optionsSound_JSlider10" max="100.0" min="0.0" name="horizontalSlider" visibleToMouse="true" width="50%"/>
+                                    <control align="left" font="Interface/Fonts/NimbusSansL.fnt" height="100%" id="optionsSound_JLabel18" name="label" text="Musik" textHAlign="left" valign="center" visibleToMouse="true" width="50%"/>
+                                </panel>
+                            </panel>
+                        </panel>
+                        <panel childLayout="absolute" height="50%" id="optionsSound_JPanel24" visible="true" visibleToMouse="true" width="90%"/>
+                    </panel>
+                </control>
+                    <control id="inputTab" name="nifty-tab" caption="${locale.inputOptions}">
+                    </control>
+            </control>-->
+        </panel>
+    </popup>
+    <screen controller="de.sydsoft.sg_wolfskrone.gui.screens.IntroScreen" id="startSydSoft">
+        <layer childLayout="center" id="layer">
+            <image id="SydsoftLogo" align="center" filename="Interface/Logos/Sydsoft.png" valign="center" backgroundColor="#0000">
+                <effect>
+                    <!--<onCustom customKey="fadeInSydsoft" name="fade" start="#0" end="#f" length="1000"/>
+                    <onCustom customKey="fadeOutSydsoft" name="fade" start="#f" end="#0" length="1000" neverStopRendering="true" />-->
+                    <onStartScreen name="fade" start="#0" end="#f" length="1000" startDelay="2000"/>
+                    <onStartScreen name="fade" start="#f" end="#0" length="1000" startDelay="7000" neverStopRendering="true" />
+                </effect>
+            </image>
+        </layer>
+    </screen>
+    <screen controller="de.sydsoft.sg_wolfskrone.gui.screens.IntroScreen" id="startWolfskrone">
+        <layer childLayout="center" id="layer">
+            <image id="WolfskroneLogo" align="center" filename="Interface/Logos/Wolfskrone256.png" valign="center" backgroundColor="#0000">
+                <effect>
+<!--                    <onCustom customKey="fadeInWolfskrone" name="fade" start="#0" end="#f" length="1000"/>
+                    <onCustom customKey="fadeOutWolfskrone" name="fade" start="#f" end="#0" length="1000" neverStopRendering="true" />-->
+                    <onStartScreen name="fade" start="#0" end="#f" length="1000" startDelay="2000"/>
+                    <onStartScreen name="fade" start="#f" end="#0" length="1000" startDelay="7000" neverStopRendering="true" />
+                </effect>
+            </image>
+        </layer>
+    </screen>
+    <screen controller="de.sydsoft.sg_wolfskrone.gui.screens.LoadingScreen" id="loading">
+        <layer childLayout="center">
+            <panel align="center" childLayout="vertical" height="80%" valign="center" visibleToMouse="true" width="80%">
+                <image align="center" filename="Interface/Logos/Sydsoft.png" valign="center" />
+                <text align="center" color="#ffff" font="Interface/Fonts/NimbusSansL.fnt" id="LoadingText" text="${locale.loading}" valign="bottom" />
+                <text align="center" color="#ffff" font="Interface/Fonts/NimbusSansL.fnt" id="LoadingPercentage" text="0%" valign="bottom" />
+            </panel>
+        </layer>
+    </screen>
+    <screen controller="de.sydsoft.sg_wolfskrone.gui.screens.LoginScreen" id="login">
+        <layer childLayout="center">
+            <panel childLayout="vertical" height="100%" id="LoginFrame" visible="true" visibleToMouse="false" width="100%">
+                <panel id ="topPanel" childLayout="horizontal" height="15%" width="100%">
+                    <panel id="topLeftPanel" childLayout="vertical" align="right" width="33%">
+                        <panel height="5%"/>
+                        <control align="center" valign="center" id="changeCharacterButton" label="change Character" type="button" width="95%" height="25%" wrap="true">
+                            <interact onClick="buttonClicked(changeCharacterButton)" />
+                        </control>
+                        <panel height="5%"/>
+                        <panel height="80%" id="actualCharacter" childLayout="horizontal" width="100%" style="nifty-panel">
+                            <effect>
+                                <onHover name="border" color="#00ff" timeType="infinite"/>
+                            </effect>
+                            <interact onClick="buttonClicked(actualCharacter)" />
+                            <panel width="15%"/>
+                            <image id="ActualCharacterIcon" filename="Interface/Textures/MinimapTest.png" valign="center" height="60%" width="20%"/>
+                            <panel width="5%"/>
+                            <text  color="#ffff" font="Interface/Fonts/NimbusSansL.fnt" id="ActualCharacterText" text="loading" valign="center" width="60%" height="90%" />
+                        </panel>
+                    </panel>
+                </panel>
+                <panel childLayout="horizontal" id="CenterPanel" width="100%" height="75%">
+                    <panel width="93%"/>
+                    <panel childLayout="vertical" id="NotifyPanel" width="7%" height="85%" valign="top" align="right">
+                        <panel childLayout="center" id="NotifyButton1" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
+                            <effect>
+                                <onHover name="border" color="#00ff" timeType="infinite"/>
+                            </effect>
+                            <interact onCLick="buttonCLicked(NotifyButton1)"/>
+                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                        </panel>
+                        <panel childLayout="center" id="NotifyButton2" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
+                            <effect>
+                                <onHover name="border" color="#00ff" timeType="infinite"/>
+                            </effect>
+                            <interact onCLick="buttonCLicked(NotifyButton2)"/>
+                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                        </panel>h das
+                        <panel childLayout="center" id="NotifyButton3" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
+                            <effect>
+                                <onHover name="border" color="#00ff" timeType="infinite"/>
+                            </effect>
+                            <interact onCLick="buttonCLicked(NotifyButton3)"/>
+                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                        </panel>
+                        <panel childLayout="center" id="NotifyButton4" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
+                            <effect>
+                                <onHover name="border" color="#00ff" timeType="infinite"/>
+                            </effect>
+                            <interact onCLick="buttonCLicked(NotifyButton4)"/>
+                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                        </panel>
+                        <panel childLayout="center" id="NotifyButton5" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
+                            <effect>
+                                <onHover name="border" color="#00ff" timeType="infinite"/>
+                            </effect>
+                            <interact onCLick="buttonCLicked(NotifyButton5)"/>
+                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                        </panel>
+                        <panel childLayout="center" id="NotifyButton6" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
+                            <effect>
+                                <onHover name="border" color="#00ff" timeType="infinite"/>
+                            </effect>
+                            <interact onCLick="buttonCLicked(NotifyButton6)"/>
+                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                        </panel>
+                        <panel childLayout="center" id="NotifyButton7" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
+                            <effect>
+                                <onHover name="border" color="#00ff" timeType="infinite"/>
+                            </effect>
+                            <interact onCLick="buttonCLicked(NotifyButton7)"/>
+                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                        </panel>
+                    </panel>
+                </panel>
+                <panel childLayout="horizontal" id="bottomPanel" width="100%" height="15%" visible="true" visibleToMouse="false">
+                    <panel width="85%" />
+                    <panel childLayout="horizontal" id="bottomRightPanel" width="15%" height="100%">
+                        <control align="center" id="LogoutButton"  label="L" type="button" width="33%" height="50%" wrap="true" visible="true" visibleToMouse="true">
+                            <interact onCLick="buttonCLicked(LogoutButton)"/>
+                        </control>
+                        <control align="center" id="StatsButton"   label="S" type="button" width="33%" height="50%" wrap="true" visible="true" visibleToMouse="true">
+                            <interact onCLick="buttonCLicked(StatsButton)"/>
+                        </control>
+                        <control align="center" id="OptionsButton" label="O" type="button" width="33%" height="50%" wrap="true" visible="true" visibleToMouse="true">
+                            <interact onCLick="buttonClicked(OptionsButton)"/>
+                        </control>
+                    </panel>
+                </panel>
+            </panel>
+        </layer>
+    </screen>
+    <screen controller="de.sydsoft.sg_wolfskrone.gui.screens.IngameScreen" id="fetching">
+        <layer childLayout="center">
+            <panel align="center" childLayout="vertical" height="80%" valign="center" visibleToMouse="true" width="80%">
+                <image align="center" filename="Interface/Logos/Sydsoft.png" valign="center" />
+                <text align="center" color="#ffff" font="Interface/Fonts/NimbusSansL.fnt" id="text" text="${locale.fetching}" valign="bottom" />
+            </panel>
+        </layer>
+    </screen>
+    <screen controller="de.sydsoft.sg_wolfskrone.gui.screens.IngameScreen" id="ingame">
+        <layer childLayout="center" id="layer">
+            <panel childLayout="vertical" height="100%" id="ingameFrame" visible="true" visibleToMouse="false" width="100%">
+                <panel childLayout="horizontal" height="20%" id="TopPanel" visible="true" visibleToMouse="false" width="80%"  align="center" valign="top">
+                    <panel height="50%" id="TopPanelWest" visible="true" visibleToMouse="true" width="40%"/>                    
+                    <panel childLayout="center" height="100%" id="TopPanelCenter" visible="true" visibleToMouse="true" width="20%">
+                        <image align="center" filename="Interface/Textures/MinimapTest.png" valign="center" height="90%" width="90%"/>
+                    </panel>
+                    <panel height="50%" id="TopPanelEast" visible="true" visibleToMouse="false" width="40%"/>
+                </panel>
+                <panel height="60%" visible="false" visibleToMouse="false" />
+                <panel childLayout="horizontal" height="20%" id="BottomPanel" visible="true" visibleToMouse="false" width="100%" align="center" valign="bottom">
+                    <panel childLayout="vertical" height="100%" id="ChatPanel" visible="true" visibleToMouse="false" width="34%" valign="bottom" >
+                        <panel childLayout="horizontal" height="15%" id="ChatTextInput" valign="bottom" visible="false" visibleToMouse="false"><!-- onEnterButton change visibility-->
+                            <control id="text_input" name="textfield" width="70%"/>
+                            <control label="Send" name="button" width= "30%">
+                                <interact onClick="sendMessage()" />
+                            </control>
+                        </panel>
+                        <panel height="5%" visible="false" visibleToMouse="false"/>
+                        <panel childLayout="center" height="75%" width="100%">
+                            <control autoScroll="bottom" height="100%" horizontal="false" id="chat_area" name="chatArea" text="test" width="100%" />
+                        </panel>
+                    </panel>
+                    <panel childLayout="vertical" height="90%" id="CastBarPanel" visible="true" visibleToMouse="false" width="33%" valign="bottom">
+                        <panel childLayout="horizontal" height="25%">
+                            <panel childLayout="horizontal" height="100%" id="StanceBar" visible="true" visibleToMouse="false" width="17%">
+                                <control align="center" id="StanceBarButton1" label="X" type="button" width="50%" wrap="true">
+                                    <interact onClick="buttonClicked(StanceBarButton1)" />
+                                </control>
+                                <control align="center" id="StanceBarButton2" label="X" type="button" width="50%" wrap="true">
+                                    <interact onClick="buttonClicked(StanceBarButton2)" />
+                                </control>
+                            </panel>
+                            <panel width="6%"/>
+                            <panel childLayout="horizontal" height="100%" id="PetBar" visible="true" visibleToMouse="false" width="77%">
+                                <control align="center" id="PetBarButton1" label="X" type="button" width="12.5%" wrap="true">
+                                    <interact onClick="buttonClicked(PetBarButton1)" />
+                                </control>
+                                <control align="center" id="PetBarButton2" label="X" type="button" width="12.5%" wrap="true">
+                                    <interact onClick="buttonClicked(PetBarButton2)" />
+                                </control>
+                                <control align="center" id="PetBarButton3" label="X" type="button" width="12.5%" wrap="true">
+                                    <interact onClick="buttonClicked(PetBarButton3)" />
+                                </control>
+                                <control align="center" id="PetBarButton4" label="X" type="button" width="12.5%" wrap="true">
+                                    <interact onClick="buttonClicked(PetBarButton4)" />
+                                </control>
+                                <control align="center" id="PetBarButton5" label="X" type="button" width="12.5%" wrap="true">
+                                    <interact onClick="buttonClicked(PetBarButton5)" />
+                                </control>
+                                <control align="center" id="PetBarButton6" label="X" type="button" width="12.5%" wrap="true">
+                                    <interact onClick="buttonClicked(PetBarButton6)" />
+                                </control>
+                                <control align="center" id="PetBarButton7" label="X" type="button" width="12.5%" wrap="true">
+                                    <interact onClick="buttonClicked(PetBarButton7)" />
+                                </control>
+                                <control align="center" id="PetBarButton8" label="X" type="button" width="12.5%" wrap="true">
+                                    <interact onClick="buttonClicked(PetBarButton8)" />
+                                </control>
+                            </panel>
+                        </panel>
+                        <panel childLayout="horizontal" height="25%">
+                            <panel childLayout="horizontal" height="100%" id="CastBar5" visible="true" visibleToMouse="false" width="47%">
+                                <control align="center" id="CastBar5Button1" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar5Button1)" />
+                                </control>
+                                <control align="center" id="CastBar5Button2" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar5Button2)" />
+                                </control>
+                                <control align="center" id="CastBar5Button3" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar5Button3)" />
+                                </control>
+                                <control align="center" id="CastBar5Button4" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar5Button4)" />
+                                </control>
+                                <control align="center" id="CastBar5Button5" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar5Button5)" />
+                                </control>
+                            </panel>
+                            <panel width="6%"/>
+                            <panel childLayout="horizontal" height="100%" id="CastBar4" visible="true" visibleToMouse="false" width="47%">
+                                <control align="center" id="CastBar4Button1" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar4Button1)" />
+                                </control>
+                                <control align="center" id="CastBar4Button2" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar4Button2)" />
+                                </control>
+                                <control align="center" id="CastBar4Button3" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar4Button3)" />
+                                </control>
+                                <control align="center" id="CastBar4Button4" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar4Button4)" />
+                                </control>
+                                <control align="center" id="CastBar4Button5" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar4Button5)" />
+                                </control>
+                            </panel>
+                        </panel>
+                        <panel childLayout="horizontal" height="25%">
+                            <panel childLayout="horizontal" height="100%" id="CastBar3" visible="true" visibleToMouse="false" width="47%">
+                                <control align="center" id="CastBar3Button1" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar3Button1)" />
+                                </control>
+                                <control align="center" id="CastBar3Button2" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar3Button2)" />
+                                </control>
+                                <control align="center" id="CastBar3Button3" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar3Button3)" />
+                                </control>
+                                <control align="center" id="CastBar3Button4" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar3Button4)" />
+                                </control>
+                                <control align="center" id="CastBar3Button5" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar3Button5)" />
+                                </control>
+                            </panel>
+                            <panel width="6%"/>
+                            <panel childLayout="horizontal" height="100%" id="CastBar2" visible="true" visibleToMouse="false" width="47%">
+                                <control align="center" id="CastBar2Button1" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar2Button1)" />
+                                </control>
+                                <control align="center" id="CastBar2Button2" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar2Button2)" />
+                                </control>
+                                <control align="center" id="CastBar2Button3" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar2Button3)" />
+                                </control>
+                                <control align="center" id="CastBar2Button4" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar2Button4)" />
+                                </control>
+                                <control align="center" id="CastBar2Button5" label="X" type="button" width="20%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar2Button5)" />
+                                </control>
+                            </panel>
+                        </panel>
+                        <panel childLayout="horizontal" height="25%">
+                            <panel childLayout="horizontal" height="100%" id="CastBar1" visible="true" visibleToMouse="false" width="100%">
+                                <control align="center" id="CastBar1Button1" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button1)" />
+                                </control>
+                                <control align="center" id="CastBar1Button2" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button2)" />
+                                </control>
+                                <control align="center" id="CastBar1Button3" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button3)" />
+                                </control>
+                                <control align="center" id="CastBar1Button4" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button4)" />
+                                </control>
+                                <control align="center" id="CastBar1Button5" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button5)" />
+                                </control>
+                                <control align="center" id="CastBar1Button6" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button6)" />
+                                </control>
+                                <control align="center" id="CastBar1Button7" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button7)" />
+                                </control>
+                                <control align="center" id="CastBar1Button8" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button8)" />
+                                </control>
+                                <control align="center" id="CastBar1Button9" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button9)" />
+                                </control>
+                                <control align="center" id="CastBar1Button10" label="X" type="button" width="10%" wrap="true">
+                                    <interact onClick="buttonClicked(CastBar1Button10)" />
+                                </control>
+                            </panel>
+                        </panel>
+                    </panel>
+                    <panel childLayout="vertical" height="100%" id="RaidPanels" visible="true" visibleToMouse="false" width="33%">
+                        <panel childLayout="horizontal" height="20%" id="GroupPanel5" visible="true" visibleToMouse="true" width="100%">
+                            <control align="center" id="GroupPanel5Button5" label="${CALL.getPlayerNameAt(5,5)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel5Button5)" />
+                            </control>
+                            <control align="center" id="GroupPanel5Button4" label="${CALL.getPlayerNameAt(5,4)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel5Button4)" />
+                            </control>
+                            <control align="center" id="GroupPanel5Button3" label="${CALL.getPlayerNameAt(5,3)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel5Button3)" />
+                            </control>
+                            <control align="center" id="GroupPanel5Button2" label="${CALL.getPlayerNameAt(5,2)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel5Button2)" />
+                            </control>
+                            <control align="center" id="GroupPanel5Button1" label="${CALL.getPlayerNameAt(5,1)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel5Button1)" />
+                            </control>
+                        </panel>                      
+                        <panel childLayout="horizontal" height="20%" id="GroupPanel4" visible="true" visibleToMouse="true" width="100%">
+                            <control align="center" id="GroupPanel4Button5" label="${CALL.getPlayerNameAt(4,5)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel4Button5)" />
+                            </control>
+                            <control align="center" id="GroupPanel4Button4" label="${CALL.getPlayerNameAt(4,4)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel4Button4)" />
+                            </control>
+                            <control align="center" id="GroupPanel4Button3" label="${CALL.getPlayerNameAt(4,3)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel4Button3)" />
+                            </control>
+                            <control align="center" id="GroupPanel4Button2" label="${CALL.getPlayerNameAt(4,2)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel4Button2)" />
+                            </control>
+                            <control align="center" id="GroupPanel4Button1" label="${CALL.getPlayerNameAt(4,1)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel4Button1)" />
+                            </control>
+                        </panel>                      
+                        <panel childLayout="horizontal" height="20%" id="GroupPanel3" visible="true" visibleToMouse="true" width="100%">
+                            <control align="center" id="GroupPanel3Button5" label="${CALL.getPlayerNameAt(3,5)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel3Button5)" />
+                            </control>
+                            <control align="center" id="GroupPanel3Button4" label="${CALL.getPlayerNameAt(3,4)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel3Button4)" />
+                            </control>
+                            <control align="center" id="GroupPanel3Button3" label="${CALL.getPlayerNameAt(3,3)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel3Button3)" />
+                            </control>
+                            <control align="center" id="GroupPanel3Button2" label="${CALL.getPlayerNameAt(3,2)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel3Button2)" />
+                            </control>
+                            <control align="center" id="GroupPanel3Button1" label="${CALL.getPlayerNameAt(3,1)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel3Button1)" />
+                            </control>
+                        </panel>                      
+                        <panel childLayout="horizontal" height="20%" id="GroupPanel2" visible="true" visibleToMouse="true" width="100%">
+                            <control align="center" id="GroupPanel2Button5" label="${CALL.getPlayerNameAt(2,5)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel2Button5)" />
+                            </control>
+                            <control align="center" id="GroupPanel2Button4" label="${CALL.getPlayerNameAt(2,4)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel2Button4)" />
+                            </control>
+                            <control align="center" id="GroupPanel2Button3" label="${CALL.getPlayerNameAt(2,3)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel2Button3)" />
+                            </control>
+                            <control align="center" id="GroupPanel2Button2" label="${CALL.getPlayerNameAt(2,2)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel2Button2)" />
+                            </control>
+                            <control align="center" id="GroupPanel2Button1" label="${CALL.getPlayerNameAt(2,1)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel2Button1)" />
+                            </control>
+                        </panel>                      
+                        <panel childLayout="horizontal" height="20%" id="GroupPanel1" visible="true" visibleToMouse="true" width="100%">
+                            <control align="center" id="GroupPanel1Button5" label="${CALL.getPlayerNameAt(1,5)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel1Button5)" />
+                            </control>
+                            <control align="center" id="GroupPanel1Button4" label="${CALL.getPlayerNameAt(1,4)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel1Button4)" />
+                            </control>
+                            <control align="center" id="GroupPanel1Button3" label="${CALL.getPlayerNameAt(1,3)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel1Button3)" />
+                            </control>
+                            <control align="center" id="GroupPanel1Button2" label="${CALL.getPlayerNameAt(1,2)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel1Button2)" />
+                            </control>
+                            <control align="center" id="GroupPanel1Button1" label="${CALL.getPlayerNameAt(1,1)}" type="button" width="20%" wrap="true">
+                                <interact onClick="buttonClicked(GroupPanel1Button1)" />
+                            </control>
+                        </panel>                      
+                    </panel>
+                </panel>
+            </panel>
+        </layer>
+    </screen>
+</nifty>

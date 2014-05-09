@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
+  <useControls filename="nifty-default-controls.xml"/>
+  <screen controller="de.sydsoft.sg_wolfskrone.gui.screens.MainScreenController" id="ingame">
+    <layer childLayout="absolute" id="layer">
+      <panel backgroundColor="#ff00ffff" childLayout="absolute" height="1000" id="ingameFrame" visible="false" visibleToMouse="true" width="800" x="0" y="0">
+        <panel backgroundColor="#ff00ffff" childLayout="absolute" height="600" id="ingameFrame_VoidPanel" visible="false" visibleToMouse="true" width="800" x="0" y="200"/>
+        <panel backgroundColor="#ff00ffff" childLayout="absolute" height="200" id="ingameFrame_TopPanel" visible="false" visibleToMouse="true" width="800" x="0" y="0">
+          <panel backgroundColor="#ff00ffff" childLayout="absolute" height="100" id="ingameFrame_TopPanelEast" visible="false" visibleToMouse="true" width="300" x="500" y="0"/>
+          <panel backgroundColor="#ff00ffff" childLayout="absolute" height="200" id="ingameFrame_TopPanelCenter" visible="false" visibleToMouse="true" width="200" x="300" y="0">
+            <control align="left" color="#333333ff" font="Gui/Fonts/Dialog-Bold-12.fnt" height="200" id="ingameFrame_MiniMap" name="label" text="" textHAlign="left" valign="center" visibleToMouse="true" width="200" x="0" y="0"/>
+          </panel>
+          <panel backgroundColor="#ff00ffff" childLayout="absolute" height="100" id="ingameFrame_TopPanelWest" visible="false" visibleToMouse="true" width="300" x="0" y="0"/>
+        </panel>
+        <panel backgroundColor="#ff00ffff" childLayout="absolute" height="200" id="ingameFrame_BottomPanel" visible="false" visibleToMouse="true" width="800" x="0" y="800">
+          <panel backgroundColor="#ff00ffff" childLayout="absolute" height="100" id="ingameFrame_RaidPanels" visible="false" visibleToMouse="true" width="300" x="500" y="0">
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="23" id="ingameFrame_GroupPanel1" visible="false" visibleToMouse="true" width="415" x="0" y="160">
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel1Button5Panel" visibleToMouse="true" width="60" x="240" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel1Button4Panel" visibleToMouse="true" width="60" x="180" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel1Button3Panel" visibleToMouse="true" width="60" x="120" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel1Button2Panel" visibleToMouse="true" width="60" x="60" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel1Button1Panel" visibleToMouse="true" width="60" x="0" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="23" id="ingameFrame_GroupPanel2" visible="false" visibleToMouse="true" width="415" x="0" y="120">
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel2Button5Panel" visibleToMouse="true" width="60" x="240" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel2Button4Panel" visibleToMouse="true" width="60" x="180" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel2Button3Panel" visibleToMouse="true" width="60" x="120" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel2Button2Panel" visibleToMouse="true" width="60" x="60" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel2Button1Panel" visibleToMouse="true" width="60" x="0" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="23" id="ingameFrame_GroupPanel3" visible="false" visibleToMouse="true" width="415" x="0" y="80">
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel3Button5Panel" visibleToMouse="true" width="60" x="240" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel3Button4Panel" visibleToMouse="true" width="60" x="180" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel3Button3Panel" visibleToMouse="true" width="60" x="120" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel3Button2Panel" visibleToMouse="true" width="60" x="60" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel3Button1Panel" visibleToMouse="true" width="60" x="0" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="23" id="ingameFrame_GroupPanel4" visible="false" visibleToMouse="true" width="415" x="0" y="40">
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel4Button5Panel" visibleToMouse="true" width="60" x="240" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel4Button4Panel" visibleToMouse="true" width="60" x="180" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel4Button3Panel" visibleToMouse="true" width="60" x="120" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel4Button2Panel" visibleToMouse="true" width="60" x="60" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel4Button1Panel" visibleToMouse="true" width="60" x="0" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="50" id="ingameFrame_GroupPanel5" visible="false" visibleToMouse="true" width="100" x="0" y="0">
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel5Button5Panel" visibleToMouse="true" width="60" x="240" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel5Button4Panel" visibleToMouse="true" width="60" x="180" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel5Button3Panel" visibleToMouse="true" width="60" x="120" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel5Button2Panel" visibleToMouse="true" width="60" x="60" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="40" id="ingameFrame_GroupPanel5Button1Panel" visibleToMouse="true" width="60" x="0" y="0">
+                <effect/>
+              </panel>
+            </panel>
+          </panel>
+          <panel backgroundColor="#ff00ffff" childLayout="absolute" height="156" id="ingameFrame_CastBarPanel" visible="false" visibleToMouse="true" width="470" x="223" y="0">
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="39" id="ingameFrame_PetBar" visible="false" visibleToMouse="true" width="376" x="0" y="22">
+              <panel childClip="true" height="39" id="ingameFrame_PetBarButton8Panel" visibleToMouse="true" width="46" x="325" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_PetBarButton7Panel" visibleToMouse="true" width="46" x="279" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_PetBarButton6Panel" visibleToMouse="true" width="46" x="233" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_PetBarButton5Panel" visibleToMouse="true" width="46" x="187" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_PetBarButton4Panel" visibleToMouse="true" width="46" x="141" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_PetBarButton3Panel" visibleToMouse="true" width="46" x="95" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_PetBarButton2Panel" visibleToMouse="true" width="46" x="49" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_PetBarButton1Panel" visibleToMouse="true" width="46" x="3" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="39" id="ingameFrame_CastBar1" visible="false" visibleToMouse="true" width="470" x="0" y="139">
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button10Panel" visibleToMouse="true" width="37" x="334" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button9Panel" visibleToMouse="true" width="37" x="297" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button8Panel" visibleToMouse="true" width="37" x="260" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button7Panel" visibleToMouse="true" width="37" x="223" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button6Panel" visibleToMouse="true" width="37" x="186" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button5Panel" visibleToMouse="true" width="37" x="149" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button4Panel" visibleToMouse="true" width="37" x="112" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button3Panel" visibleToMouse="true" width="37" x="75" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button2Panel" visibleToMouse="true" width="37" x="38" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar1Button1Panel" visibleToMouse="true" width="37" x="1" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="39" id="ingameFrame_CastBar2" visible="false" visibleToMouse="true" width="235" x="139" y="100">
+              <panel childClip="true" height="39" id="ingameFrame_CastBar2Button5Panel" visibleToMouse="true" width="47" x="188" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar2Button4Panel" visibleToMouse="true" width="47" x="141" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar2Button3Panel" visibleToMouse="true" width="47" x="94" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar2Button2Panel" visibleToMouse="true" width="47" x="47" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar2Button1Panel" visibleToMouse="true" width="47" x="0" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="39" id="ingameFrame_CastBar3" visible="false" visibleToMouse="true" width="235" x="0" y="100">
+              <panel childClip="true" height="39" id="ingameFrame_CastBar3Button5Panel" visibleToMouse="true" width="27" x="109" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar3Button4Panel" visibleToMouse="true" width="27" x="82" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar3Button3Panel" visibleToMouse="true" width="27" x="55" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar3Button2Panel" visibleToMouse="true" width="27" x="28" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar3Button1Panel" visibleToMouse="true" width="27" x="1" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="39" id="ingameFrame_CastBar4" visible="false" visibleToMouse="true" width="235" x="139" y="61">
+              <panel childClip="true" height="39" id="ingameFrame_CastBar4Button5Panel" visibleToMouse="true" width="47" x="188" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar4Button4Panel" visibleToMouse="true" width="47" x="141" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar4Button3Panel" visibleToMouse="true" width="47" x="94" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar4Button2Panel" visibleToMouse="true" width="47" x="47" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar4Button1Panel" visibleToMouse="true" width="47" x="0" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="39" id="ingameFrame_CastBar5" visible="false" visibleToMouse="true" width="235" x="0" y="61">
+              <panel childClip="true" height="39" id="ingameFrame_CastBar5Button5Panel" visibleToMouse="true" width="27" x="109" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar5Button4Panel" visibleToMouse="true" width="27" x="82" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar5Button3Panel" visibleToMouse="true" width="27" x="55" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar5Button2Panel" visibleToMouse="true" width="27" x="28" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="39" id="ingameFrame_CastBar5Button1Panel" visibleToMouse="true" width="27" x="1" y="0">
+                <effect/>
+              </panel>
+            </panel>
+            <panel backgroundColor="#ff00ffff" childLayout="absolute" height="39" id="ingameFrame_StanceBar" visible="false" visibleToMouse="true" width="94" x="0" y="0">
+              <panel childClip="true" height="0" id="ingameFrame_StanceBarButton2Panel" visibleToMouse="true" width="0" x="0" y="0">
+                <effect/>
+              </panel>
+              <panel childClip="true" height="0" id="ingameFrame_StanceBarButton1Panel" visibleToMouse="true" width="0" x="0" y="0">
+                <effect/>
+              </panel>
+            </panel>
+          </panel>
+          <panel backgroundColor="#ff00ffff" childLayout="absolute" height="97" id="ingameFrame_ChatPanel" visible="false" visibleToMouse="true" width="223" x="0" y="0">
+            <control name="chatArea" id="chat_area" width="100%" height="100%" horizontal="false" autoScroll="bottom" text="test" />
+          </panel>
+        </panel>
+      </panel>
+    </layer>
+  </screen>
+</nifty>
+Interface/Fonts/NimbusSansL.fnt

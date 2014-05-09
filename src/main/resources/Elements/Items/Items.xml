@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--filigrane Brustplatte aus Mithril(Blau): 410 Rüstung, 15 Prestige,25 Beweglichkeit, Effekt ein Magisches Schild umgibt den traeger fuer 15 Sekunden wenn er Geshlagen wird        
+-->
+<root>
+    <Item>
+        <ID>0</ID>
+        <type>armors.Chestplate</type>
+        <ItemRareNess>2</ItemRareNess>
+        <prefix>LATHY</prefix>
+        <Name>Chestplate</Name>
+        <ItemSuffix>MITHRIL</ItemSuffix>
+        <armor>410</armor>
+        <!--Attributes-->
+        <prestige>15</prestige>
+        <agility>25</agility>
+        <!--Attributes end-->
+        <!--effect-->
+        <what>mShield</what>
+        <howMuch>1</howMuch>
+        <how>relative</how><!--relative -> in Prozent | absolut -> absolut-->
+        <howLong>15</howLong><!-- in Sekunden-->
+        <when>damageGot</when>
+        <!--effect end-->
+        <description type="de">Effekt: Ein magisches Schild umgibt den träger, wenn er Geschlagen wird, welches 1% des Schadens absorbiert. hält 15 Sekunden an.</description>
+        <description type="en">Effect: blablubb</description>
+		<!--<includedItems>5,12,30</includedItems>-->
+        <itemLevel>70</itemLevel>
+    </Item>
+</root>
