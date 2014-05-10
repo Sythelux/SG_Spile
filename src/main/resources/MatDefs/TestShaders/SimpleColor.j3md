@@ -1,0 +1,21 @@
+MaterialDef My MaterialDef {
+
+    MaterialParameters {
+        Color Color
+    }
+
+    Technique {
+        VertexShader GLSL100:   MatDefs/TestShaders/SimpleColor.vert
+        FragmentShader GLSL100: MatDefs/TestShaders/SimpleColor.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+            WorldViewMatrix
+        }
+
+        Defines {
+            COLOR : Color
+        }
+    }
+
+}
