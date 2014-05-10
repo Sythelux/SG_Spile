@@ -10,6 +10,7 @@ import com.jme3.light.AmbientLight;
 import com.jme3.light.DirectionalLight;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
+import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Spatial;
 import com.jme3.terrain.geomipmap.LODGeomap;
@@ -82,7 +83,7 @@ public class LoadingState extends ClientMainAppState {
 
         /** 1.1) Add ALPHA map (for red-blue-green coded splat textures) */
         mat_terrain.setTexture("Alpha", g.getAssetManager().loadTexture(
-                "Textures/Terrain/splat/alphamap.png"));
+                "Textures/Terrain/ib_dhmv4-alphamap.jpg"));
 
         /** 1.2) Add GRASS texture into the red layer (Tex1). */
         Texture grass = g.getAssetManager().loadTexture(
@@ -108,7 +109,7 @@ public class LoadingState extends ClientMainAppState {
         /** 2. Create the height map */
         AbstractHeightMap heightmap = null;
 //        Texture heightMapImage = g.getAssetManager().loadTexture("Textures/Terrain/splat/mountains512.png");
-        Texture heightMapImage = g.getAssetManager().loadTexture("Textures/Terrain/Höhenkarte_Test.png");
+        Texture heightMapImage = g.getAssetManager().loadTexture("Textures/Terrain/ib_dhmv4.jpg");
         try {
             heightmap = new ImageBasedHeightMap(heightMapImage.getImage());
 //            heightmap = new RawHeightMap("/home/sythelux/Arbeitsbank/Java/Wolfskrone/assets/Textures/Terrain/landscape_test.raw", 256);
@@ -130,12 +131,10 @@ public class LoadingState extends ClientMainAppState {
         /** 4. We give the terrain its material, position & scale it, and attach it. */
         terrain.setMaterial(mat_terrain);
         terrain.setLocalTranslation(0, 0, 0);
-        terrain.setLocalScale(2f, 1f, 2f);
+        terrain.setLocalScale(2f, 2f, 2f);
         g.getRootNode().attachChild(terrain);
 
         /** 5. The LOD (level of detail) depends on were the camera is: */
-        TerrainLodControl control = new TerrainLodControl(terrain, g.getCamera());
-        terrain.addControl(control);
     }
 
     public void initSky() {
@@ -166,4 +165,10 @@ public class LoadingState extends ClientMainAppState {
     public void cleanup() {
         super.cleanup();
     }
+
+    public TerrainQuad getTerrain() {
+        return terrain;
+    }
+    
+    
 }

@@ -23,7 +23,8 @@ import de.sydsoft.sg_wolfskrone.gui.screens.LoadingScreen;
 import de.sydsoft.sg_wolfskrone.gui.screens.LoginScreen;
 import de.sydsoft.sg_wolfskrone.logic.PlayerLoaderMessage;
 import de.sydsoft.sg_wolfskrone.logic.ServerRequestMessage;
-import audio.AudioConstants;
+import de.sydsoft.sg_wolfskrone.audio.AudioConstants;
+import com.jme3.asset.DesktopAssetManager;
 import de.sydsoft.sg_wolfskrone.logic.ServerAnswerMessage;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -63,6 +64,7 @@ public class GameClient extends SimpleApplication {
                     case "--server":
                     case "-S":
                         ServerIPPort = args[i + 1];
+                        break;
                 }
             }
         }
@@ -101,6 +103,11 @@ public class GameClient extends SimpleApplication {
                 Console.errMsg(ex);
             }
         }
+    }
+
+    public GameClient() {
+        super();
+//        assetManager = new DesktopAssetManager();
     }
 
     @Override
@@ -255,5 +262,4 @@ public class GameClient extends SimpleApplication {
     public AudioNode getAudioRootNode() {
         return audioRootNode;
     }
-    
 }

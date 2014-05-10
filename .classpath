@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/test/java"/>
-	<classpathentry kind="src" path="src/main/resources"/>
-	<classpathentry kind="src" path="src/test/assets"/>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/b7f0fc8f61ecadeb3695f0b9464755eee44374d4/commons-codec-1.6.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/61e9f9d11fe3e12ec62f633006e99d75fd7f19c8/commons-codec-1.6-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.m2/repository/com/thoughtworks/xstream/xstream/1.4.7/xstream-1.4.7.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.m2/repository/de/sydsoft/libST/1.1/libST-1.1.jar"/>
@@ -35,9 +34,13 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/nifty-default-controls/3.0.0.20120512-SNAPSHOT/b124c111aeb1ab650e6dfd9391c9bfb756f48a81/nifty-default-controls-3.0.0.20120512-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/nifty-examples/3.0.0.20120512-SNAPSHOT/7b5a537211fc98a269f55abf2ce806b8e1b3edec/nifty-examples-3.0.0.20120512-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.jme3/nifty-style-black/3.0.0.20120512-SNAPSHOT/644484ac49a9a1a79b83ed372791ce72c6917a4e/nifty-style-black-3.0.0.20120512-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.sun.jna/jna/3.0.9/9dd557b9a44d05a3810104ed1c835a42b925dc4a/jna-3.0.9.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/com.sun.jna/jna/3.0.9/7dc1258891bd34f34767f8aa918e6920aba38118/jna-3.0.9-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/uk.co.caprica/vlcj/3.0.1/5c673d08a652bdfbe61146b6de6662f4641c650b/vlcj-3.0.1.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/uk.co.caprica/vlcj/3.0.1/86d6a9e4c9435abd189794cb0c98a43ca3455c5/vlcj-3.0.1-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/3.5.2/f1bf9fe267e17c1a8f7d1aa2c985e7fe81a06da6/jna-3.5.2.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/3.5.2/58843855a12b0ba9ed1efffb85dfbcd052930ad9/jna-3.5.2-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/platform/3.5.2/beac07d13858ef3697ceeab43897d70aeb5113c9/platform-3.5.2.jar" sourcepath="C:/Users/sythelux/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/platform/3.5.2/bc6b5158219706865e4a527e2602301286842641/platform-3.5.2-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

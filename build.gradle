@@ -1,4 +1,4 @@
-version = '0.1'
+version = '0.2'
 group = 'de.sydsoft'
 
 apply plugin: 'java'
@@ -28,9 +28,9 @@ jar {
 repositories {
 	mavenLocal()
     mavenCentral()
-	maven {
-		url "https://oss.sonatype.org/content/groups/public/"
-	}
+    maven {
+    	url "https://oss.sonatype.org/content/groups/public/"
+    }
 }
 
 dependencies {
@@ -64,7 +64,12 @@ dependencies {
 		'com.jme3:nifty:3.0.0.20120512-SNAPSHOT',
 		'com.jme3:nifty-default-controls:3.0.0.20120512-SNAPSHOT',
 		'com.jme3:nifty-examples:3.0.0.20120512-SNAPSHOT',
-		'com.jme3:nifty-style-black:3.0.0.20120512-SNAPSHOT'
+		'com.jme3:nifty-style-black:3.0.0.20120512-SNAPSHOT',
+		'com.sun.jna:jna:3.+'
 	)
-    testCompile group: 'junit', name: 'junit', version: '4.+'
+    testCompile (
+	    'junit:junit:4.+',
+	    'com.sun.jna:jna:3.+',
+	    'uk.co.caprica:vlcj:3.+'
+    )
 }

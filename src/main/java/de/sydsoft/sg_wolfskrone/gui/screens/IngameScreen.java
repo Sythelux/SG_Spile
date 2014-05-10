@@ -8,8 +8,10 @@ import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.screen.Screen;
 import de.sydsoft.sg_wolfskrone.appstates.ClientMainAppState;
+import de.sydsoft.sg_wolfskrone.gui.InputHandler;
 import de.sydsoft.sg_wolfskrone.gui.ingame.chat.ChatAreaController;
 import de.sydsoft.sg_wolfskrone.gui.ingame.chat.TextFieldControl;
+import de.sydsoft.sg_wolfskrone.util.LocHelper;
 
 /**
  *
@@ -20,13 +22,15 @@ public class IngameScreen extends MainScreenController {
     private String lastscreen = "";
     private boolean waitscreenactive = false;
     private ChatAreaController chatArea;
+    private Element textInputPanel;
     private Element textInput;
-    
+
     @Override
     public void bind(Nifty nifty, Screen screen) {
         super.bind(nifty, screen);
         textInput = screen.findElementByName("text_input");
         chatArea = screen.findControl("chat_area", ChatAreaController.class);
+        textInputPanel = screen.findElementByName("ChatTextInput");
     }
 
     public IngameScreen(ClientMainAppState state) {
@@ -68,9 +72,12 @@ public class IngameScreen extends MainScreenController {
     public void sendMessage() {
         state.getGame().sendMessage(textInput.getControl(TextFieldControl.class).getText());
         if (chatArea.getText().isEmpty()) {
+            chatArea.append(LocHelper.timeAsChannelStamp());
             chatArea.append(textInput.getControl(TextFieldControl.class).getText());
         } else {
-            chatArea.append("\n" + textInput.getControl(TextFieldControl.class).getText());
+            chatArea.append("\n");
+            chatArea.append(LocHelper.timeAsChannelStamp());
+            chatArea.append(textInput.getControl(TextFieldControl.class).getText());
         }
         textInput.getControl(TextFieldControl.class).setText("");
         textInput.setFocus();
@@ -79,12 +86,29 @@ public class IngameScreen extends MainScreenController {
     public ChatAreaController getChatArea() {
         return chatArea;
     }
-    
-    public void buttonClicked(String id){
+
+    public void buttonClicked(String id) {
         //app.restart() bei options
     }
-    
-    public String getPlayerAt(String groupNum, String playerNum){
-        return "test:"+playerNum;
+
+    public void keyPressed(String id) {
+        switch (id) {
+            case InputHandler.ReturnKeyString:
+                if (textInputPanel.isVisible()) {
+                    if (textInput.getControl(TextFieldControl.class).getText().equals("")) {
+                        textInputPanel.hide();
+                    } else {
+                        sendMessage();
+                    }
+                } else {
+                    textInputPanel.show();
+                    textInputPanel.setFocus();
+                }
+                break;
+        }
+    }
+
+    public String getPlayerAt(String groupNum, String playerNum) {
+        return "test:" + playerNum;
     }
 }

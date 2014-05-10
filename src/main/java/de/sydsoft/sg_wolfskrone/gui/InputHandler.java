@@ -19,7 +19,9 @@ import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.NiftyEventSubscriber;
 import de.lessvoid.nifty.controls.ButtonClickedEvent;
 import de.lessvoid.nifty.controls.CheckBoxStateChangedEvent;
+import de.lessvoid.nifty.screen.ScreenController;
 import de.sydsoft.sg_wolfskrone.entities.Player;
+import de.sydsoft.sg_wolfskrone.gui.screens.IngameScreen;
 
 /**
  *
@@ -31,20 +33,21 @@ public class InputHandler {
     private Player player;
     private Nifty nifty;
     private AppSettings settings;
-    private final String ctrlS = "ctrl";
-    private final String lcS = "leftclick";
-    private final String rcS = "rightclick";
-    private final String aheadS = "ahead";
-    private final String aheadLockS = "aheadLock";
-    private final String backS = "back";
-    private final String leftS = "left";
-    private final String rightS = "right";
-    private final String jumpS = "jump";
-    private final String debugS = "debug";
-    private final String mmlS = "mouseMoveLeft";
-    private final String mmrS = "mouseMoveRight";
-    private final String mmuS = "mouseMoveUp";
-    private final String mmdS = "mouseMoveDown";
+    public static final String ControlKeyString = "ctrl";
+    public static final String ReturnKeyString = "returnKey";
+    public static final String LeftClickString = "leftclick";
+    public static final String RightClickString = "rightclick";
+    public static final String AheadString = "ahead";
+    public static final String AheadLockString = "aheadLock";
+    public static final String BackString = "back";
+    public static final String LeftString = "left";
+    public static final String RightString = "right";
+    public static final String JumpString = "jump";
+    public static final String DebugString = "debug";
+    public static final String MouseMoveLeftString = "mouseMoveLeft";
+    public static final String MouseMoveRightString = "mouseMoveRight";
+    public static final String MouseMoveUpString = "mouseMoveUp";
+    public static final String MouseMoveDownString = "mouseMoveDown";
     public boolean ahead, back, left, right, jump, aheadLock, leftC, rightC;
     public float mouseAxeLeft, mouseAxeRight, mouseAxeUp, mouseAxeDown;
 
@@ -60,185 +63,140 @@ public class InputHandler {
     }
 
     public void initialize() {
-//        inputManager.addMapping(ctrlS, new KeyTrigger(KeyInput.KEY_LCONTROL));
-//        inputManager.addListener(ctrlH, ctrlS);
-        inputManager.addMapping(leftS, new KeyTrigger(KeyInput.KEY_A));
-        inputManager.addListener(leftH, leftS);
-        inputManager.addMapping(rightS, new KeyTrigger(KeyInput.KEY_D));
-        inputManager.addListener(rightH, rightS);
-        inputManager.addMapping(aheadS, new KeyTrigger(KeyInput.KEY_W));
-        inputManager.addListener(aheadH, aheadS);
-        inputManager.addMapping(backS, new KeyTrigger(KeyInput.KEY_S));
-        inputManager.addListener(downH, backS);
-        inputManager.addMapping(jumpS, new KeyTrigger(KeyInput.KEY_SPACE));
-        inputManager.addListener(jumpH, jumpS);
-        inputManager.addMapping(debugS, new KeyTrigger(KeyInput.KEY_F5));
-        inputManager.addListener(debugH, debugS);
-        inputManager.addMapping(aheadLockS, new KeyTrigger(KeyInput.KEY_CAPITAL));
-        inputManager.addListener(aheadLockH, aheadLockS);
+        inputManager.addMapping(LeftString, new KeyTrigger(KeyInput.KEY_A));
+        inputManager.addMapping(RightString, new KeyTrigger(KeyInput.KEY_D));
+        inputManager.addMapping(AheadString, new KeyTrigger(KeyInput.KEY_W));
+        inputManager.addMapping(BackString, new KeyTrigger(KeyInput.KEY_S));
+        inputManager.addMapping(JumpString, new KeyTrigger(KeyInput.KEY_SPACE));
+        inputManager.addMapping(DebugString, new KeyTrigger(KeyInput.KEY_F5));
+        inputManager.addMapping(AheadLockString, new KeyTrigger(KeyInput.KEY_CAPITAL));
+        inputManager.addMapping(ReturnKeyString, new KeyTrigger(KeyInput.KEY_RETURN));
+        inputManager.addListener(actionListener, LeftString, RightString, AheadString, BackString, JumpString, DebugString, AheadLockString, ReturnKeyString);
 
-        inputManager.addMapping(lcS, new MouseButtonTrigger(MouseInput.BUTTON_LEFT));
-        inputManager.addListener(lcH, lcS);
-        inputManager.addMapping(rcS, new MouseButtonTrigger(MouseInput.BUTTON_RIGHT));
-        inputManager.addListener(rcH, rcS);
+        inputManager.addMapping(LeftClickString, new MouseButtonTrigger(MouseInput.BUTTON_LEFT));
+        inputManager.addMapping(RightClickString, new MouseButtonTrigger(MouseInput.BUTTON_RIGHT));
+        inputManager.addListener(actionListener, LeftClickString, RightClickString);
 
-        inputManager.addMapping(mmlS, new MouseAxisTrigger(MouseInput.AXIS_X, false));
-        inputManager.addListener(mmlH, mmlS);
-        inputManager.addMapping(mmrS, new MouseAxisTrigger(MouseInput.AXIS_X, true));
-        inputManager.addListener(mmrH, mmrS);
-        inputManager.addMapping(mmuS, new MouseAxisTrigger(MouseInput.AXIS_Y, false));
-        inputManager.addListener(mmuH, mmuS);
-        inputManager.addMapping(mmdS, new MouseAxisTrigger(MouseInput.AXIS_Y, true));
-        inputManager.addListener(mmdH, mmdS);
+        inputManager.addMapping(MouseMoveLeftString, new MouseAxisTrigger(MouseInput.AXIS_X, false));
+        inputManager.addMapping(MouseMoveRightString, new MouseAxisTrigger(MouseInput.AXIS_X, true));
+        inputManager.addMapping(MouseMoveUpString, new MouseAxisTrigger(MouseInput.AXIS_Y, false));
+        inputManager.addMapping(MouseMoveDownString, new MouseAxisTrigger(MouseInput.AXIS_Y, true));
+        inputManager.addListener(analogListener, MouseMoveLeftString, MouseMoveRightString, MouseMoveUpString, MouseMoveDownString);
         if (settings == null) {
             settings = new AppSettings(true);
         }
     }
     // <editor-fold defaultstate="collapsed" desc="Key- and MouseListener">
-    private ActionListener ctrlH = new ActionListener() {
-
-        public void onAction(String name, boolean keyPressed, float tpf) {
-            if (inputManager.isCursorVisible() && keyPressed) {
-                inputManager.setCursorVisible(false);
-            } else {
-                inputManager.setCursorVisible(true);
-            }
-        }
-    };
-    private ActionListener aheadH = new ActionListener() {
+    private ActionListener actionListener = new ActionListener() {
 
         public void onAction(String name, boolean keyPressed, float tpf) {
             if (keyPressed) {
-                ahead = true;
+                switch (name) {
+                    case LeftString:
+                        left = true;
+                        break;
+                    case RightString:
+                        right = true;
+                        break;
+                    case AheadString:
+                        ahead = true;
+                        break;
+                    case BackString:
+                        back = true;
+                        break;
+                    case JumpString:
+                        jump = true;
+                        break;
+                    case DebugString:
+                        if (Constants.DEBUG) {
+                            Constants.DEBUG = false;
+                            nifty.setDebugOptionPanelColors(false);
+                        } else {
+                            Constants.DEBUG = true;
+                            nifty.setDebugOptionPanelColors(true);
+                        }
+                        break;
+                    case AheadLockString:
+                        if (aheadLock) {
+                            aheadLock = false;
+                        } else {
+                            aheadLock = true;
+                        }
+                        break;
+                    case LeftClickString:
+                        leftC = true;
+                        inputManager.setCursorVisible(false);
+                        break;
+                    case RightClickString:
+                        rightC = true;
+                        inputManager.setCursorVisible(false);
+                        break;
+                    case ReturnKeyString:
+                        ScreenController sc = nifty.findScreenController(IngameScreen.class.getName());
+                        if (sc instanceof IngameScreen) {
+                            IngameScreen is = (IngameScreen) nifty.findScreenController(IngameScreen.class.getName());
+                            is.keyPressed(ReturnKeyString);
+                        }
+                        break;
+                }
             } else {
-                ahead = false;
-                aheadLock = false;
-            }
-        }
-    };
-    private ActionListener downH = new ActionListener() {
-
-        public void onAction(String name, boolean keyPressed, float tpf) {
-            if (keyPressed) {
-                back = true;
-            } else {
-                back = false;
-            }
-        }
-    };
-    private ActionListener leftH = new ActionListener() {
-
-        public void onAction(String name, boolean keyPressed, float tpf) {
-            if (keyPressed) {
-                left = true;
-            } else {
-                left = false;
-            }
-        }
-    };
-    private ActionListener rightH = new ActionListener() {
-
-        @Override
-        public void onAction(String name, boolean keyPressed, float tpf) {
-            if (keyPressed) {
-                right = true;
-            } else {
-                right = false;
-            }
-        }
-    };
-    private ActionListener jumpH = new ActionListener() {
-
-        public void onAction(String name, boolean keyPressed, float tpf) {
-            if (keyPressed) {
-                jump = true;
-            } else {
-                jump = false;
-            }
-        }
-    };
-    private ActionListener debugH = new ActionListener() {
-
-        public void onAction(String name, boolean keyPressed, float tpf) {
-            if (keyPressed) {
-                if (Constants.DEBUG) {
-                    Constants.DEBUG = false;
-                    nifty.setDebugOptionPanelColors(false);
-                } else {
-                    Constants.DEBUG = true;
-                    nifty.setDebugOptionPanelColors(true);
+                switch (name) {
+                    case LeftString:
+                        left = false;
+                        break;
+                    case RightString:
+                        right = false;
+                        break;
+                    case AheadString:
+                        ahead = false;
+                        aheadLock = false;
+                        break;
+                    case BackString:
+                        back = false;
+                        break;
+                    case JumpString:
+                        jump = false;
+                        break;
+                    case DebugString://nothing in else
+                        break;
+                    case AheadLockString://nothing in else
+                        break;
+                    case LeftClickString:
+                        leftC = false;
+                        if (!rightC) {
+                            inputManager.setCursorVisible(true);
+                        }
+                        break;
+                    case RightClickString:
+                        rightC = false;
+                        if (!leftC) {
+                            inputManager.setCursorVisible(true);
+                        }
+                        break;
+                    case ReturnKeyString://nothing in else
+                        break;
                 }
             }
         }
     };
-    private ActionListener aheadLockH = new ActionListener() {
+    private AnalogListener analogListener = new AnalogListener() {
 
-        public void onAction(String name, boolean keyPressed, float tpf) {
-            if (keyPressed) {
-                if (aheadLock) {
-                    aheadLock = false;
-                } else {
-                    aheadLock = true;
-                }
+        @Override
+        public void onAnalog(String name, float value, float tpf) {
+            switch (name) {
+                case MouseMoveLeftString:
+                    mouseAxeLeft = value;
+                    break;
+                case MouseMoveRightString:
+                    mouseAxeRight = value;
+                    break;
+                case MouseMoveUpString:
+                    mouseAxeUp = value;
+                    break;
+                case MouseMoveDownString:
+                    mouseAxeDown = value;
+                    break;
             }
-        }
-    };
-    private ActionListener lcH = new ActionListener() {
-
-        @Override
-        public void onAction(String name, boolean keyPressed, float tpf) {
-            if (keyPressed) {
-                leftC = true;
-                inputManager.setCursorVisible(false);
-            } else {
-                leftC = false;
-                if (!rightC) {
-                    inputManager.setCursorVisible(true);
-                }
-            }
-        }
-    };
-    private ActionListener rcH = new ActionListener() {
-
-        @Override
-        public void onAction(String name, boolean keyPressed, float tpf) {
-            if (keyPressed) {
-                rightC = true;
-                inputManager.setCursorVisible(false);
-            } else {
-                rightC = false;
-                if (!leftC) {
-                    inputManager.setCursorVisible(true);
-                }
-            }
-        }
-    };
-    private AnalogListener mmlH = new AnalogListener() {
-
-        @Override
-        public void onAnalog(String name, float value, float tpf) {
-            mouseAxeLeft = value;
-        }
-    };
-    private AnalogListener mmrH = new AnalogListener() {
-
-        @Override
-        public void onAnalog(String name, float value, float tpf) {
-            mouseAxeRight = value;
-        }
-    };
-    private AnalogListener mmuH = new AnalogListener() {
-
-        @Override
-        public void onAnalog(String name, float value, float tpf) {
-            mouseAxeUp = value;
-        }
-    };
-    private AnalogListener mmdH = new AnalogListener() {
-
-        @Override
-        public void onAnalog(String name, float value, float tpf) {
-            mouseAxeDown = value;
         }
     };
     // </editor-fold>
