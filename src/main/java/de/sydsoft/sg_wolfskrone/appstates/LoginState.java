@@ -4,7 +4,7 @@
  */
 package de.sydsoft.sg_wolfskrone.appstates;
 
-import audio.AudioConstants;
+import de.sydsoft.sg_wolfskrone.audio.AudioConstants;
 import com.jme3.app.Application;
 import com.jme3.app.state.AppStateManager;
 import com.jme3.audio.AudioNode;
@@ -19,7 +19,7 @@ import com.jme3.scene.shape.Sphere;
 import com.jme3.texture.Texture;
 import com.jme3.util.SkyFactory;
 import de.sydsoft.libst.util.Console;
-import de.sydsoft.sg_wolfskrone.gui.GameClient;
+import de.sydsoft.libst.util.Constants;
 import de.sydsoft.sg_wolfskrone.gui.screens.LoginScreen;
 import de.sydsoft.sg_wolfskrone.logic.ChatMessage;
 import de.sydsoft.sg_wolfskrone.logic.ClientListener;
@@ -58,9 +58,9 @@ public class LoginState extends ClientMainAppState {
         Sphere sph = new Sphere(128, 128, 3f); // create cube shape at the origin
         geom = new Geometry("World", sph);  // create cube geometry from the shape
         Material mat = new Material(g.getAssetManager(),
-                "Common/MatDefs/Misc/Unshaded.j3md");  // create a simple material
+                "Common/MatDefs/Light/Lighting.j3md");  // create a simple material
         Texture tex = g.getAssetManager().loadTexture("Interface/Textures/Earth.jpg");
-        mat.setTexture("ColorMap", tex);
+        mat.setTexture("NormalMap", tex);
         geom.setMaterial(mat);                   // set the cube's material
         geom.rotate(-1.5707963267f, (float) Math.PI / 2, 0);
         geom.setLocalTranslation(-4f, -3f, 0);
@@ -74,7 +74,9 @@ public class LoginState extends ClientMainAppState {
         loginMusic.setLooping(false);
         loginMusic.setVolume(1f);
         musicNode.attachChild(loginMusic);
-        loginMusic.play();
+        if (!Constants.DEBUG) {
+            loginMusic.play();
+        }
         // </editor-fold>
         enabled = true;
     }
@@ -82,7 +84,8 @@ public class LoginState extends ClientMainAppState {
     @Override
     public void update(float tpf) {
         super.update(tpf);
-        geom.rotate(0, 0, tpf * 0.01f);
+        //geom.rotate(0, 0, tpf * 0.01f);
+        geom.rotate(0, 0, tpf);
         if (completed) {
             g.toLoadingScreen();
         }

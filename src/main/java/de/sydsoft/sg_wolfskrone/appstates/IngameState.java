@@ -8,14 +8,11 @@ import com.jme3.bullet.collision.shapes.HeightfieldCollisionShape;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.font.BitmapFont;
 import com.jme3.font.BitmapText;
-import com.jme3.material.Material;
-import com.jme3.math.Quaternion;
+import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
-import com.jme3.scene.Geometry;
-import com.jme3.scene.Spatial;
-import com.jme3.scene.shape.Sphere;
+import com.jme3.scene.Node;
+import com.jme3.terrain.geomipmap.TerrainLodControl;
 import com.jme3.terrain.geomipmap.TerrainQuad;
-import com.jme3.texture.Texture;
 import com.jme3.ui.Picture;
 import de.sydsoft.libst.util.Constants;
 import de.sydsoft.sg_wolfskrone.gui.GameClient;
@@ -24,9 +21,8 @@ import de.sydsoft.sg_wolfskrone.logic.ChatMessage;
 import de.sydsoft.sg_wolfskrone.logic.ClientListener;
 import de.sydsoft.sg_wolfskrone.logic.ServerAnswerMessage;
 import de.sydsoft.sg_wolfskrone.logic.ServerRequestMessage;
+import de.sydsoft.sg_wolfskrone.util.AdvancedChaseCamera;
 import de.sydsoft.sg_wolfskrone.util.LocHelper;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.lwjgl.Sys;
 
 /**
@@ -35,7 +31,7 @@ import org.lwjgl.Sys;
  */
 public class IngameState extends ClientMainAppState {
 
-    //private ChaseCamera chaseCam;
+    private AdvancedChaseCamera chaseCam;
     //private Quaternion camRot;
     private BitmapText ch;
     private BitmapText charAttributs;
@@ -48,12 +44,10 @@ public class IngameState extends ClientMainAppState {
     @Override
     public void initialize(AppStateManager stateManager, Application app) {
         super.initialize(stateManager, app);
-//        g.getCamera().setLocation(new Vector3f(300, 0, 200));
         //add PhysicsAppState
         stateManager.attach(g.getBulletAppState());
         if (Constants.DEBUG) {
             g.getBulletAppState().getPhysicsSpace().enableDebug(g.getAssetManager());
-            //PhysicsTestHelper.createPhysicsTestWorldSoccer(rootNode, assetManager, bulletAppState.getPhysicsSpace());
         }
         //add Chatability, apstateDownload
         initNetwork();
@@ -106,20 +100,22 @@ public class IngameState extends ClientMainAppState {
     public void initPlayer() {
         g.getActualCharacter().initialize((GameClient) g, g.getPlayer().getChoosenName());
         g.getClient().send(new ServerRequestMessage(ServerRequestMessage.PLAYERPOSITION, new String[]{g.getPlayer().getChoosenName()}));
-//        chaseCam = new ChaseCamera(g.getCamera(), (Node) g.getActualCharacter().getModel(), g.getInputManager());
-//        chaseCam.setInvertHorizontalAxis(false);
-//        chaseCam.setInvertVerticalAxis(true);
-//        chaseCam.setDefaultDistance(3f);
-//        chaseCam.setMinDistance(3f);
-//        chaseCam.setMaxDistance(10f);
-        //g.getActualCharacter().setViewDirection(g.getCamera().getLeft());
+        chaseCam = new AdvancedChaseCamera(g.getCamera(), (Node) g.getActualCharacter().getNode(), g.getInputManager());
+        chaseCam.setInvertHorizontalAxis(false);
+        chaseCam.setInvertVerticalAxis(true);
+        chaseCam.setDefaultDistance(3f);
+        chaseCam.setMinDistance(3f);
+        chaseCam.setMaxDistance(10f);
         StringBuilder sb = new StringBuilder(g.getActualCharacter().getFullyName());
         sb.append(" (").append(g.getActualCharacter().getCharLevel()).append(")\r\n").append(g.getActualCharacter().getAttributs().toString());
         charAttributs.setText(sb);
         terrain = ((TerrainQuad) g.getRootNode().getChild("my terrain"));
         terrain.addControl(new RigidBodyControl(new HeightfieldCollisionShape(terrain.getHeightMap(), terrain.getLocalScale()), 0));
         g.getBulletAppState().getPhysicsSpace().add(terrain);
-        g.getActualCharacter().getCharacterControl().setPhysicsLocation(clientListener.getPlayerPos().add(0, 1, 0));
+        clientListener.getPlayerPos().setY(terrain.getHeight(new Vector2f(clientListener.getPlayerPos().x, clientListener.getPlayerPos().z)));
+        g.getActualCharacter().getCharacterControl().setPhysicsLocation(clientListener.getPlayerPos().add(0,1,0));
+        TerrainLodControl control = new TerrainLodControl(terrain, g.getActualCharacter().getCamNode().getCamera());
+        terrain.addControl(control);
     }
 
     public void initNPCs() {
@@ -178,63 +174,7 @@ public class IngameState extends ClientMainAppState {
         if (g.getInputHandler().back) {
             walkDirection.addLocal(camDir.negate());
         }
-        //        camRot.lookAt(viewDirection, camDir);
-        //g.getCamera().setAxes(camRot.getRotationColumn(0).multLocal(tpf).negate(), g.getCamera().getUp(), g.getActualCharacter().getPhysicsLocation());
-        //        if (!g.getInputHandler().rightC && g.getInputHandler().leftC) {
-        //            //Console.dbgMsg("left Mousebutton clicked");
-        //            if (g.getInputHandler().left) {
-        //                viewDirection.addLocal(camRot.getRotationColumn(1).multLocal(tpf));
-        //            }
-        //            if (g.getInputHandler().right) {
-        //                viewDirection.addLocal(camRot.getRotationColumn(1).multLocal(tpf).negate());
-        //            }
-        //            if (g.getInputHandler().ahead || g.getInputHandler().aheadLock) {
-        //                walkDirection.addLocal(viewDirection.clone());
-        //            }
-        //            if (g.getInputHandler().back) {
-        //                walkDirection.addLocal(viewDirection.negate().clone());
-        //            }
-        //            //System.out.println("Viewdirection: " + viewDirection);
-        //        } else if (g.getInputHandler().rightC && !g.getInputHandler().leftC) {
-        //            //Console.dbgMsg("right Mousebutton clicked");
-        //            if (g.getInputHandler().left) {
-        //                walkDirection.addLocal(camLeft);
-        //                viewDirection = camDir;
-        //            }
-        //            if (g.getInputHandler().right) {
-        //                walkDirection.addLocal(camLeft.negate());
-        //                viewDirection = camDir;
-        //            }
-        //            if (g.getInputHandler().ahead || g.getInputHandler().aheadLock) {
-        //                walkDirection.addLocal(camDir);
-        //            }
-        //            if (g.getInputHandler().back) {
-        //                walkDirection.addLocal(camDir.negate());
-        //            }
-        //            if (!(g.getInputHandler().back || g.getInputHandler().ahead || g.getInputHandler().aheadLock || g.getInputHandler().right || g.getInputHandler().left)) {
-        //                viewDirection = camDir;
-        //            }
-        //        } else if (g.getInputHandler().rightC && g.getInputHandler().leftC) {
-        //            walkDirection.addLocal(camDir).multLocal(0, -1, 0);
-        //        } else {
-        //            if (g.getInputHandler().left) {
-        //                viewDirection.addLocal(camRot.getRotationColumn(0).multLocal(tpf));
-        //            }
-        //            if (g.getInputHandler().right) {
-        //                viewDirection.addLocal(camRot.getRotationColumn(0).multLocal(tpf).negate());
-        //            }
-        //            if (g.getInputHandler().ahead || g.getInputHandler().aheadLock) {
-        //                walkDirection.addLocal(viewDirection.clone());
-        //            }
-        //            if (g.getInputHandler().back) {
-        //                walkDirection.addLocal(viewDirection.clone());
-        //            }
-        //        }
         // </editor-fold>
-//        if (clientListener.getPlayerPos() != null) {
-//            g.getActualCharacter().getCharacterControl().setPhysicsLocation(clientListener.getPlayerPos());
-//            clientListener.setPlayerPos(null);
-//        }
         if (g.getInputHandler().jump) {
             g.getActualCharacter().setAnimation("JumpStart", 1f);
             g.getActualCharacter().getCharacterControl().jump();
@@ -273,24 +213,6 @@ public class IngameState extends ClientMainAppState {
                 g.getActualCharacter().setLoopMode(LoopMode.Loop);
             }
         }
-//        if (g.getInputHandler().mouseAxeLeft > 0 && g.getInputHandler().rightC) {
-//            viewDirection.addLocal(camLeft.mult(g.getInputHandler().mouseAxeLeft).negate());
-//            g.getInputHandler().mouseAxeLeft = 0;
-//        }
-//        if (g.getInputHandler().mouseAxeRight > 0 && g.getInputHandler().rightC) {
-//            viewDirection.addLocal(camLeft.mult(g.getInputHandler().mouseAxeRight));
-//            g.getInputHandler().mouseAxeRight = 0;
-//        }
-//        if (g.getInputHandler().mouseAxeUp > 0 && g.getInputHandler().rightC) {//TODO: hoch/runtergugen
-//            viewDirection.addLocal(camDir.add(0,g.getInputHandler().mouseAxeUp,0).negate());
-//            //viewDirection.addLocal(0, g.getInputHandler().mouseAxeUp, 0);
-//            g.getInputHandler().mouseAxeUp = 0;
-//        }
-//        if (g.getInputHandler().mouseAxeDown > 0 && g.getInputHandler().rightC) {
-//            viewDirection.addLocal(camDir.mult(g.getInputHandler().mouseAxeDown));
-//            g.getInputHandler().mouseAxeDown = 0;
-//        }
-//        viewSphere.setLocalTranslation(g.getActualCharacter().getCharacterControl().getPhysicsLocation().add(viewDirection));
         ch.setText("CharPos:" + g.getActualCharacter().getCharacterControl().getPhysicsLocation().toString() + "\r\nTime: " + Sys.getTime() + "\r\ntpf: " + tpf + "\r\nairtime: " + g.getActualCharacter().getAirTime() + "\r\nHealth: " + LocHelper.roundTwoDecimals(g.getActualCharacter().getActHealth()) + "/" + g.getActualCharacter().getMaxHealth());
         //System.out.println(g.getActualCharacter().getWalkDirection().toString()+"|"+g.getActualCharacter().getWalkDirection().length());
         g.getActualCharacter().getCharacterControl().setWalkDirection(walkDirection.normalize().multLocal(0.1f));

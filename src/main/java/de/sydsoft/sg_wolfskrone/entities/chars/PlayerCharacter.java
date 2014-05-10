@@ -65,7 +65,7 @@ public class PlayerCharacter extends Char {
             GameClient g = (GameClient) app;
             g.getBulletAppState().getPhysicsSpace().add(characterControl);
             //spatial.addControl(this);
-            camNode = new CameraNode("CharCamNode", app.getCamera());
+            camNode = new CameraNode("CharCamNode", app.getCamera().clone());
             camNode.setControlDir(ControlDirection.SpatialToCamera);
             //spatial.
 //            this.setPhysicsLocation(new Vector3f(app.getCamera().getLocation().x, 150, app.getCamera().getLocation().z));
@@ -222,4 +222,9 @@ public class PlayerCharacter extends Char {
     public Node getNode() {
         return charNode;
     }
+
+    public CameraNode getCamNode() {
+        return camNode;
+    }
+    
 }
