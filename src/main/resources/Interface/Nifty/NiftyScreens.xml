@@ -4,7 +4,7 @@
     <useControls filename="nifty-default-controls.xml" />
     <useControls filename="Interface/Nifty/Ingame/textfield.xml" />
     <useControls filename="Interface/Nifty/Ingame/chat-control.xml" />
-    <!--<resourceBundle id="locale" filename="assets/Interface/Nifty/Locale/nifty" />-->
+    <resourceBundle id="locale" filename="nifty" />
     <controlDefinition controller="de.sydsoft.sg_wolfskrone.gui.ingame.chat.ChatAreaController" name="chatArea">
         <panel childLayout="center" heigh="$height" width="$width">
             <control autoScroll="$autoScroll" height="100%" horizontal="$horizontal" id="scroll_panel" name="scrollPanel" vertical="$vertical" width="100%">
@@ -152,8 +152,8 @@
                 <effect>
                     <!--<onCustom customKey="fadeInSydsoft" name="fade" start="#0" end="#f" length="1000"/>
                     <onCustom customKey="fadeOutSydsoft" name="fade" start="#f" end="#0" length="1000" neverStopRendering="true" />-->
-                    <onStartScreen name="fade" start="#0" end="#f" length="1000" startDelay="2000"/>
-                    <onStartScreen name="fade" start="#f" end="#0" length="1000" startDelay="7000" neverStopRendering="true" />
+                    <onStartScreen name="fade" start="#0" end="#f" length="100" startDelay="200"/>
+                    <onStartScreen name="fade" start="#f" end="#0" length="100" startDelay="700" neverStopRendering="true" />
                 </effect>
             </image>
         </layer>
@@ -162,10 +162,10 @@
         <layer childLayout="center" id="layer">
             <image id="WolfskroneLogo" align="center" filename="Interface/Logos/Wolfskrone256.png" valign="center" backgroundColor="#0000">
                 <effect>
-<!--                    <onCustom customKey="fadeInWolfskrone" name="fade" start="#0" end="#f" length="1000"/>
+<!--<onCustom customKey="fadeInWolfskrone" name="fade" start="#0" end="#f" length="1000"/>
                     <onCustom customKey="fadeOutWolfskrone" name="fade" start="#f" end="#0" length="1000" neverStopRendering="true" />-->
-                    <onStartScreen name="fade" start="#0" end="#f" length="1000" startDelay="2000"/>
-                    <onStartScreen name="fade" start="#f" end="#0" length="1000" startDelay="7000" neverStopRendering="true" />
+                    <onStartScreen name="fade" start="#0" end="#f" length="100" startDelay="200"/>
+                    <onStartScreen name="fade" start="#f" end="#0" length="100" startDelay="700" neverStopRendering="true" />
                 </effect>
             </image>
         </layer>
@@ -209,49 +209,49 @@
                                 <onHover name="border" color="#00ff" timeType="infinite"/>
                             </effect>
                             <interact onCLick="buttonCLicked(NotifyButton1)"/>
-                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                            <image filename="Interface/Textures/Message.jpg" valign="center" align="center" height="90%" width="90%"/>
                         </panel>
                         <panel childLayout="center" id="NotifyButton2" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
                             <effect>
                                 <onHover name="border" color="#00ff" timeType="infinite"/>
                             </effect>
                             <interact onCLick="buttonCLicked(NotifyButton2)"/>
-                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                            <image filename="Interface/Textures/Message.jpg" valign="center" align="center" height="90%" width="90%"/>
                         </panel>h das
                         <panel childLayout="center" id="NotifyButton3" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
                             <effect>
                                 <onHover name="border" color="#00ff" timeType="infinite"/>
                             </effect>
                             <interact onCLick="buttonCLicked(NotifyButton3)"/>
-                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                            <image filename="Interface/Textures/Message.jpg" valign="center" align="center" height="90%" width="90%"/>
                         </panel>
                         <panel childLayout="center" id="NotifyButton4" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
                             <effect>
                                 <onHover name="border" color="#00ff" timeType="infinite"/>
                             </effect>
                             <interact onCLick="buttonCLicked(NotifyButton4)"/>
-                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                            <image filename="Interface/Textures/Message.jpg" valign="center" align="center" height="90%" width="90%"/>
                         </panel>
                         <panel childLayout="center" id="NotifyButton5" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
                             <effect>
                                 <onHover name="border" color="#00ff" timeType="infinite"/>
                             </effect>
                             <interact onCLick="buttonCLicked(NotifyButton5)"/>
-                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                            <image filename="Interface/Textures/Message.jpg" valign="center" align="center" height="90%" width="90%"/>
                         </panel>
                         <panel childLayout="center" id="NotifyButton6" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
                             <effect>
                                 <onHover name="border" color="#00ff" timeType="infinite"/>
                             </effect>
                             <interact onCLick="buttonCLicked(NotifyButton6)"/>
-                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                            <image filename="Interface/Textures/Message.jpg" valign="center" align="center" height="90%" width="90%"/>
                         </panel>
                         <panel childLayout="center" id="NotifyButton7" width="64" height="64" visible="true" visibleToMouse="true"style="nifty-panel">
                             <effect>
                                 <onHover name="border" color="#00ff" timeType="infinite"/>
                             </effect>
                             <interact onCLick="buttonCLicked(NotifyButton7)"/>
-                            <image filename="Interface/Textures/Message.png" valign="center" align="center" height="90%" width="90%"/>
+                            <image filename="Interface/Textures/Message.jpg" valign="center" align="center" height="90%" width="90%"/>
                         </panel>
                     </panel>
                 </panel>

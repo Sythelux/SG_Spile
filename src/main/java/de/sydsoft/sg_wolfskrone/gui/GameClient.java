@@ -1,31 +1,5 @@
 package de.sydsoft.sg_wolfskrone.gui;
 
-import com.jme3.app.SimpleApplication;
-import com.jme3.audio.AudioNode;
-import com.jme3.bullet.BulletAppState;
-import com.jme3.network.Client;
-import com.jme3.network.serializing.Serializer;
-import com.jme3.niftygui.NiftyJmeDisplay;
-import com.jme3.system.AppSettings;
-import de.sydsoft.libst.util.Console;
-import de.sydsoft.libst.util.Constants;
-import de.lessvoid.nifty.Nifty;
-import de.sydsoft.sg_wolfskrone.entities.Player;
-import de.sydsoft.sg_wolfskrone.logic.ChatMessage;
-import de.sydsoft.sg_wolfskrone.appstates.IngameState;
-import de.sydsoft.sg_wolfskrone.appstates.IntroState;
-import de.sydsoft.sg_wolfskrone.appstates.LoadingState;
-import de.sydsoft.sg_wolfskrone.appstates.LoginState;
-import de.sydsoft.sg_wolfskrone.entities.chars.PlayerCharacter;
-import de.sydsoft.sg_wolfskrone.gui.screens.IngameScreen;
-import de.sydsoft.sg_wolfskrone.gui.screens.IntroScreen;
-import de.sydsoft.sg_wolfskrone.gui.screens.LoadingScreen;
-import de.sydsoft.sg_wolfskrone.gui.screens.LoginScreen;
-import de.sydsoft.sg_wolfskrone.logic.PlayerLoaderMessage;
-import de.sydsoft.sg_wolfskrone.logic.ServerRequestMessage;
-import de.sydsoft.sg_wolfskrone.audio.AudioConstants;
-import com.jme3.asset.DesktopAssetManager;
-import de.sydsoft.sg_wolfskrone.logic.ServerAnswerMessage;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Enumeration;
@@ -33,12 +7,40 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
+
 import javax.imageio.ImageIO;
+
+import com.jme3.app.SimpleApplication;
+import com.jme3.audio.AudioNode;
+import com.jme3.bullet.BulletAppState;
+import com.jme3.network.Client;
+import com.jme3.network.serializing.Serializer;
+import com.jme3.niftygui.NiftyJmeDisplay;
+import com.jme3.system.AppSettings;
+
+import de.lessvoid.nifty.Nifty;
+import de.sydsoft.libst.util.Console;
+import de.sydsoft.libst.util.Constants;
+import de.sydsoft.sg_wolfskrone.appstates.IngameState;
+import de.sydsoft.sg_wolfskrone.appstates.IntroState;
+import de.sydsoft.sg_wolfskrone.appstates.LoadingState;
+import de.sydsoft.sg_wolfskrone.appstates.LoginState;
+import de.sydsoft.sg_wolfskrone.audio.AudioConstants;
+import de.sydsoft.sg_wolfskrone.entities.Player;
+import de.sydsoft.sg_wolfskrone.entities.chars.PlayerCharacter;
+import de.sydsoft.sg_wolfskrone.gui.screens.IngameScreen;
+import de.sydsoft.sg_wolfskrone.gui.screens.IntroScreen;
+import de.sydsoft.sg_wolfskrone.gui.screens.LoadingScreen;
+import de.sydsoft.sg_wolfskrone.gui.screens.LoginScreen;
+import de.sydsoft.sg_wolfskrone.logic.ChatMessage;
+import de.sydsoft.sg_wolfskrone.logic.PlayerLoaderMessage;
+import de.sydsoft.sg_wolfskrone.logic.ServerAnswerMessage;
+import de.sydsoft.sg_wolfskrone.logic.ServerRequestMessage;
 
 public class GameClient extends SimpleApplication {
 
     private static String firstRunPassed = "firstRunPassed";
-    private static String ServerIPPort;
+    public static String ServerIPPort = "localhost:"+0xface;
     private Client client;
     private IntroState introState = new IntroState();
     private LoadingState loadingState = new LoadingState();
@@ -124,6 +126,7 @@ public class GameClient extends SimpleApplication {
         } else {
             inputManager.setCursorVisible(true);
         }
+        inputManager.setCursorVisible(true);
         NiftyJmeDisplay niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
         nifty = niftyDisplay.getNifty();
 

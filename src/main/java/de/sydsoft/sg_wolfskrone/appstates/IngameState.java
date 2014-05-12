@@ -13,7 +13,6 @@ import com.jme3.math.Vector3f;
 import com.jme3.scene.Node;
 import com.jme3.terrain.geomipmap.TerrainLodControl;
 import com.jme3.terrain.geomipmap.TerrainQuad;
-import com.jme3.ui.Picture;
 import de.sydsoft.libst.util.Constants;
 import de.sydsoft.sg_wolfskrone.gui.GameClient;
 import de.sydsoft.sg_wolfskrone.gui.screens.IngameScreen;
@@ -78,10 +77,10 @@ public class IngameState extends ClientMainAppState {
     public void initGui() {
         g.getClient().addMessageListener(clientListener, ChatMessage.class);
 
-        Picture pic = new Picture("HUD Picture");
-        pic.setImage(g.getAssetManager(), "Interface/Textures/GUI-idee1.1280x1024.png", true);
-        pic.setWidth(g.getSettings().getWidth());
-        pic.setHeight(g.getSettings().getHeight());
+//        Picture pic = new Picture("HUD Picture");
+//        pic.setImage(g.getAssetManager(), "Interface/Textures/GUI-idee1.1280x1024.png", true);
+//        pic.setWidth(g.getSettings().getWidth());
+//        pic.setHeight(g.getSettings().getHeight());
         //pic.setPosition(g.getSettings().getWidth() / 4, g.getSettings().getHeight() / 4);
 //        g.getGuiNode().attachChild(pic);
         BitmapFont guiFont = g.getAssetManager().loadFont("Interface/Fonts/NimbusSansL.fnt");

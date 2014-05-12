@@ -20,6 +20,7 @@ import com.jme3.texture.Texture;
 import com.jme3.util.SkyFactory;
 import de.sydsoft.libst.util.Console;
 import de.sydsoft.libst.util.Constants;
+import de.sydsoft.sg_wolfskrone.gui.GameClient;
 import de.sydsoft.sg_wolfskrone.gui.screens.LoginScreen;
 import de.sydsoft.sg_wolfskrone.logic.ChatMessage;
 import de.sydsoft.sg_wolfskrone.logic.ClientListener;
@@ -46,7 +47,8 @@ public class LoginState extends ClientMainAppState {
         Client client = null;
         if (g.getClient() == null) {
             try {
-                client = (Client) Network.connectToServer("localhost", 0xface);
+            	String[] ipPort =GameClient.ServerIPPort.split(":");
+                client = (Client) Network.connectToServer(ipPort[0], Integer.parseInt(ipPort[1]));
             } catch (IOException ex) {
                 Console.errMsg(ex);
             }
@@ -59,7 +61,7 @@ public class LoginState extends ClientMainAppState {
         geom = new Geometry("World", sph);  // create cube geometry from the shape
         Material mat = new Material(g.getAssetManager(),
                 "Common/MatDefs/Light/Lighting.j3md");  // create a simple material
-        Texture tex = g.getAssetManager().loadTexture("Interface/Textures/Earth.jpg");
+        Texture tex = g.getAssetManager().loadTexture("Textures/Login/Earth/Earth Full.jpg");
         mat.setTexture("NormalMap", tex);
         geom.setMaterial(mat);                   // set the cube's material
         geom.rotate(-1.5707963267f, (float) Math.PI / 2, 0);

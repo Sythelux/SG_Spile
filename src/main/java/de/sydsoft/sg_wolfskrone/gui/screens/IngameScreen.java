@@ -102,7 +102,7 @@ public class IngameScreen extends MainScreenController {
                     }
                 } else {
                     textInputPanel.show();
-                    textInputPanel.setFocus();
+                    textInput.setFocus();
                 }
                 break;
         }

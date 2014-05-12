@@ -50,7 +50,7 @@ public class IntroScreen extends MainScreenController{
             toWolfskroneIntro();
             return;
         }
-        if (nifty.getCurrentScreen().getScreenId().equals("startWolfskrone")) {
+        if (nifty.getCurrentScreen().getScreenId().equals("startSpile")) {
             toLoginScreen();
             return;
         }
