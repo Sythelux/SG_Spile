@@ -4,6 +4,9 @@
  */
 package de.sydsoft.sg_wolfskrone.entities;
 
+import de.sydsoft.sg_spile.entities.Attribute;
+import de.sydsoft.sg_spile.entities.Attributes;
+
 /**
  *
  * @author sythelux

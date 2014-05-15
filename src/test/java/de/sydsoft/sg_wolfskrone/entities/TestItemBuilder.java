@@ -4,14 +4,12 @@
  */
 package de.sydsoft.sg_wolfskrone.entities;
 
-import de.sydsoft.libst.util.Console;
-import de.sydsoft.sg_wolfskrone.entities.items.armors.Chestplate;
-import java.awt.TextArea;
-import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
+
+import de.sydsoft.sg_spile.entities.Attribute;
+import de.sydsoft.sg_spile.entities.ItemBuilder;
+import de.sydsoft.sg_spile.entities.items.armors.Chestplate;
 
 /**
  *

@@ -5,11 +5,12 @@
 package de.sydsoft.sg_wolfskrone.gui.screens;
 
 import com.jme3.app.SimpleApplication;
-import com.jme3.app.state.AppState;
 import com.jme3.niftygui.NiftyJmeDisplay;
-import de.sydsoft.libst.util.Constants;
+
 import de.lessvoid.nifty.Nifty;
-import de.sydsoft.sg_wolfskrone.appstates.ClientMainAppState;
+import de.sydsoft.libst.util.Constants;
+import de.sydsoft.sg_spile.appstates.ClientMainAppState;
+import de.sydsoft.sg_spile.gui.screens.IngameScreen;
 
 /**
  *

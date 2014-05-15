@@ -12,3 +12,5 @@
 hs_err_pid*
 /bin
 /build/
+/lwjgl64.dll
+/OpenAL64.dll

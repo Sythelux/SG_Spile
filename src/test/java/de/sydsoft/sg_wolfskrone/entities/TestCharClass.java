@@ -4,8 +4,11 @@
  */
 package de.sydsoft.sg_wolfskrone.entities;
 
-import de.sydsoft.sg_wolfskrone.entities.items.armors.Chestplate;
-import de.sydsoft.sg_wolfskrone.entities.items.ArmorPrefix;
+import de.sydsoft.sg_spile.entities.CharClass;
+import de.sydsoft.sg_spile.entities.ItemBuilder;
+import de.sydsoft.sg_spile.entities.items.ArmorPrefix;
+import de.sydsoft.sg_spile.entities.items.armors.Chestplate;
+
 import java.util.ArrayList;
 
 /**
